@@ -8,74 +8,72 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: const Text(
-            "First Screen of My app!",
-            style: TextStyle(color: Colors.black),
-          ),
-          centerTitle: true,
-          backgroundColor: const Color.fromARGB(255, 7, 147, 255),
-        ),
-        backgroundColor: const Color.fromARGB(255, 199, 224, 245),
-        body: Container(
-          child: const Row(
-            children: [
-              Padding(
-                padding: EdgeInsets.only(left: 20, top: 20),
-                child: Box(position: MainAxisAlignment.start),
-              ),
-              Padding(
-                padding: EdgeInsets.only(left: 10, bottom: 50),
-                child: Box(position: MainAxisAlignment.center),
-              ),
-              Padding(
-                padding: EdgeInsets.only(left: 10, bottom: 65),
-                child: Box(position: MainAxisAlignment.end),
-              ),
-            ],
+          leading: const Icon(
+            Icons.architecture,
+            size: 50,
           ),
         ),
-      ),
-    );
-  }
-}
-
-
-class Box extends StatelessWidget {
-  final MainAxisAlignment position;
-
-  const Box({super.key, required this.position});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        mainAxisAlignment: position,
-        children: [
-          Container(
-            alignment: Alignment.center,
-            child: Text("1"),
-            width: 80,
-            height: 80,
-            color: Colors.red,
+        body: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              width: double.infinity,
+              color: Colors.red,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {},
+                    child: Text("wd"),
+                    style: ElevatedButton.styleFrom(
+                      disabledBackgroundColor: Colors.yellow,
+                      shadowColor: Colors.transparent,
+                      side: BorderSide(
+                        color: Colors.black,
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(50),
+                      ),
+                    ),
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      print("hello");
+                    },
+                    icon: Icon(Icons.abc),
+                    iconSize: 100,
+                  ),
+                  TextButton(
+                      onLongPress: () {
+                        print("long press");
+                      },
+                      onPressed: () {
+                        print("press");
+                      },
+                      child: Text(
+                        "Press",
+                        style: TextStyle(fontSize: 50),
+                      )),
+                  Icon(
+                    Icons.arrow_back_ios,
+                    size: 50,
+                    color: Colors.yellow,
+                  ),
+                  SizedBox(
+                    height: 50,
+                  ),
+                  Icon(
+                    Icons.arrow_circle_right,
+                    size: 50,
+                    color: Colors.yellow,
+                  ),
+                ],
+              ),
+            ),
           ),
-          Container(
-            alignment: Alignment.center,
-            child: Text("2"),
-            width: 95,
-            height: 95,
-            color: Colors.yellow,
-          ),
-          Container(
-            alignment: Alignment.center,
-            child: Text("3"),
-            width: 115,
-            height: 115,
-            color: Colors.green,
-          ),
-        ],
+        ),
       ),
     );
   }
