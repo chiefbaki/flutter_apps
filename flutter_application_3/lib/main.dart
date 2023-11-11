@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'buttons/button_reg.dart';
 
 void main() => runApp(const MyApp());
 
@@ -21,7 +22,8 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        gradient: LinearGradient(colors: [Color(0xff8C4AE2), Color(0xff743BD1)]),
+        gradient:
+            LinearGradient(colors: [Color(0xff8C4AE2), Color(0xff743BD1)]),
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
@@ -72,20 +74,7 @@ class MainPage extends StatelessWidget {
                   SizedBox(
                     height: 90,
                   ),
-                  ElevatedButton(
-                      onPressed: () {},
-                      child: Text("Регистрация", style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18), textAlign: TextAlign.center,),
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.transparent,
-                          fixedSize: Size(343, 60),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(50),
-                          ),
-                          elevation: 0,
-                          side: BorderSide(
-                            width: 2,
-                            color: Colors.white,
-                          ))),
+                  ButtonReg(),
                   SizedBox(
                     height: 30,
                   ),
@@ -104,7 +93,12 @@ class MainPage extends StatelessWidget {
                   ),
                   ElevatedButton(
                     onPressed: () {},
-                    child: Text("Магазин автозапчастей", style: TextStyle(fontWeight: FontWeight.w700, fontSize: 12), textAlign: TextAlign.center,),
+                    child: Text(
+                      "Магазин автозапчастей",
+                      style:
+                          TextStyle(fontWeight: FontWeight.w700, fontSize: 12),
+                      textAlign: TextAlign.center,
+                    ),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.transparent,
                       elevation: 0,
