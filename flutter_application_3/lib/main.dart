@@ -74,7 +74,7 @@ class MainPage extends StatelessWidget {
                   SizedBox(
                     height: 90,
                   ),
-                  ButtonReg(),
+                  ButtonReg(text: "Регистрация",),
                   SizedBox(
                     height: 30,
                   ),

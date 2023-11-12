@@ -48,17 +48,35 @@ class RegPage extends StatelessWidget {
                   height: 20,
                 ),
                 UnderText(text: "Фамилия"),
-                TextData(labelText: "Иванов"),
+                TextData(labelText: "Введите фамилию"),
                 SizedBox(
                   height: 13,
                 ),
                 UnderText(text: "Имя"),
-                TextData(labelText: "Иван"),
+                TextData(labelText: "Введите имя"),
                 SizedBox(
                   height: 13,
                 ),
                 UnderText(text: "Номер телефона"),
-                TextData(labelText: "+996 500 000 000"),
+                TextData(
+                  labelText: "Введите номер",
+                  textType: TextInputType.phone,
+                ),
+                SizedBox(
+                  height: 13,
+                ),
+                UnderText(text: "Пароль"),
+                TextData(
+                  labelText: "Введите пароль",
+                  obscureTextPass: true,
+                  icon: Icon(Icons.visibility),
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Center(
+                  child: ButtonReg(text: "Зарегистрироваться", color: Colors.white,),
+                )
               ],
             ),
           ),
@@ -68,10 +86,68 @@ class RegPage extends StatelessWidget {
   }
 }
 
-class TextData extends StatelessWidget {
-  final String labelText;
-  const TextData({super.key, required this.labelText});
+// class TextData extends StatelessWidget {
+//   final String labelText;
+//   final bool obscureTextPass;
+//   final TextInputType textType;
+//   final Icon? icon;
+//   const TextData(
+//       {super.key,
+//       required this.labelText,
+//       this.obscureTextPass = false,
+//       this.textType = TextInputType.text, 
+//       this.icon});
 
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       child: Column(
+//         mainAxisAlignment: MainAxisAlignment.center,
+//         children: [
+//           TextField(
+//             obscureText: obscureTextPass,
+//             keyboardType: textType,
+//             decoration: InputDecoration(
+//                 hintText: labelText,
+//                 disabledBorder: OutlineInputBorder(
+//                   borderSide: BorderSide(
+//                     color: Colors.white
+//                   )
+//                 ),
+//                 suffixIcon: icon,
+//                 suffixIconColor: Colors.white,
+//                 hintStyle: TextStyle(
+//                     fontWeight: FontWeight.w400,
+//                     fontSize: 16,
+//                     color: Colors.white),
+//                 border: OutlineInputBorder(
+//                     borderRadius: BorderRadius.circular(15),
+//                     borderSide: BorderSide(
+//                       width: 1,
+//                     ))),
+//           )
+//         ],
+//       ),
+//     );
+//   }
+// }
+
+
+class TextData extends StatefulWidget {
+  final String labelText;
+  final bool obscureTextPass;
+  final TextInputType textType;
+  final Icon? icon;
+  const TextData({super.key, required this.labelText,
+      this.obscureTextPass = false,
+      this.textType = TextInputType.text, 
+      this.icon});
+
+  @override
+  State<TextData> createState() => _TextDataState();
+}
+
+class _TextDataState extends State<TextData> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -79,8 +155,19 @@ class TextData extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           TextField(
+            obscureText: widget.obscureTextPass,
+            keyboardType: widget.textType,
             decoration: InputDecoration(
-                hintText: labelText,
+              focusColor: Colors.white,
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(15),
+                borderSide: BorderSide(
+                  color: Colors.white,
+                )
+              ),
+                hintText: widget.labelText,
+                suffixIcon: widget.icon,
+                suffixIconColor: Colors.white,
                 hintStyle: TextStyle(
                     fontWeight: FontWeight.w400,
                     fontSize: 16,
@@ -94,9 +181,10 @@ class TextData extends StatelessWidget {
           )
         ],
       ),
-    );
+    );;
   }
 }
+
 
 class UnderText extends StatelessWidget {
   final String text;
