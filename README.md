@@ -1,6 +1,7 @@
 # flutter_mega
 # task 1
-![image](https://github.com/chiefbaki/flutter_mega/assets/61545789/045352c4-b9a8-4781-8493-7fcde98d16a7)
+<img src="https://github.com/chiefbaki/flutter_mega/assets/61545789/41fa69fd-a404-4f99-af1f-dec6408109a0" width="300" height="620">
+
 # task 2
 <img src="https://github.com/chiefbaki/flutter_mega/assets/61545789/9130868f-f661-4770-8563-cdcd32467780" width="300" height="620">
 
