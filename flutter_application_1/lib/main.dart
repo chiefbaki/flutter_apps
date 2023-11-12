@@ -8,73 +8,85 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(
-          leading: const Icon(
-            Icons.architecture,
-            size: 50,
+          backgroundColor: const Color.fromARGB(255, 141, 187, 224),
+          appBar: AppBar(
+            title: const Text("First Screen of My App"),
+            centerTitle: true,
           ),
-        ),
-        body: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
-              width: double.infinity,
-              color: Colors.red,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+          body: const Padding(
+            padding: EdgeInsets.all(30.0),
+            child: Center(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: Text("wd"),
-                    style: ElevatedButton.styleFrom(
-                      disabledBackgroundColor: Colors.yellow,
-                      shadowColor: Colors.transparent,
-                      side: BorderSide(
-                        color: Colors.black,
-                      ),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(50),
-                      ),
+                  SetOfBlocks(
+                    position: MainAxisAlignment.start,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 100, left: 15),
+                    child: SetOfBlocks(
+                      position: MainAxisAlignment.center,
                     ),
                   ),
-                  IconButton(
-                    onPressed: () {
-                      print("hello");
-                    },
-                    icon: Icon(Icons.abc),
-                    iconSize: 100,
-                  ),
-                  TextButton(
-                      onLongPress: () {
-                        print("long press");
-                      },
-                      onPressed: () {
-                        print("press");
-                      },
-                      child: Text(
-                        "Press",
-                        style: TextStyle(fontSize: 50),
-                      )),
-                  Icon(
-                    Icons.arrow_back_ios,
-                    size: 50,
-                    color: Colors.yellow,
-                  ),
-                  SizedBox(
-                    height: 50,
-                  ),
-                  Icon(
-                    Icons.arrow_circle_right,
-                    size: 50,
-                    color: Colors.yellow,
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 100, left: 15),
+                    child: SetOfBlocks(
+                      position: MainAxisAlignment.end,
+                    ),
                   ),
                 ],
               ),
             ),
-          ),
-        ),
+          )),
+    );
+  }
+}
+
+class SetOfBlocks extends StatelessWidget {
+  final MainAxisAlignment position;
+
+  const SetOfBlocks({super.key, required this.position});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: position,
+        children: const [
+          Block(width: 70, height: 75, num: "1"),
+          Block(width: 90, height: 90, num: "2", color: Colors.yellow,),
+          Block(width: 110, height: 110, num: "1", color: Colors.green,),
+        ],
       ),
+    );
+  }
+}
+
+class Block extends StatelessWidget {
+  final String num;
+  final Color color;
+  final double width, height;
+
+  const Block(
+      {super.key,
+      required this.width,
+      required this.height,
+      required this.num,
+      this.color = Colors.red});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: width,
+      height: height,
+      decoration: BoxDecoration(color: color),
+      child: Center(
+          child: Text(
+        num,
+        textAlign: TextAlign.center,
+      )),
     );
   }
 }
