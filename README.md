@@ -5,6 +5,6 @@
 ![image](https://github.com/chiefbaki/flutter_mega/assets/61545789/3d780124-e84d-40b8-9164-c585be21a7b1) 
 ![image](https://github.com/chiefbaki/flutter_mega/assets/61545789/2d03f2e1-2123-416d-8b0b-31f3f5db15d0)
 # task 3
-<img src="![Simulator Screenshot - iPhone 15 Pro Max - 2023-11-12 at 20 34 28](https://github.com/chiefbaki/flutter_mega/assets/61545789/a3bc1fae-259d-401f-8904-5768c23b7056)" width="300" height="800">
+<img src="https://github.com/chiefbaki/flutter_mega/assets/61545789/a3bc1fae-259d-401f-8904-5768c23b7056" width="300" height="600">
 
 
