@@ -27,23 +27,25 @@ class HomePage extends StatelessWidget {
                 SizedBox(
                   height: 10.h,
                 ),
-                CircleAvatar(
-                    radius: 74.r, child: Image.asset("assets/images/logo.png")),
+                Container(
+                  height: 148.h,
+                  width: 148.w,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(colors: [Color(0xffC7CDC9), Color(0xff222419)]),
+                    shape: BoxShape.circle 
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(2.0),
+                    child: CircleAvatar(
+                        radius: 74.r, child: Image.asset("assets/images/logo.png")),
+                  ),
+                ),
                 SizedBox(
                   height: 65.h,
                 ),
                 DataField(title: "Name", keyboardType: TextInputType.name,),
-                // SizedBox(
-                //   height: 25.h,
-                // ),
                 DataField(title: "Username"),
-                // SizedBox(
-                //   height: 25.h,
-                // ),
                 DataField(title: "Phone number", keyboardType: TextInputType.phone, hintText: '+996 ',),
-                // SizedBox(
-                //   height: 25.h,
-                // ),
                 DataField(title: "Email", keyboardType: TextInputType.emailAddress,),
                 SizedBox(
                   height: 110.h,
