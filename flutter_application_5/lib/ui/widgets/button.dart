@@ -24,8 +24,8 @@ class _ButtonState extends State<Button> {
                 MaterialStatePropertyAll<Color>(AppColors.buttonLogInColor)),
         onPressed: () {},
         child: Text(
-          "Log in",
-          style: AppFonts.s20w700.copyWith(color: Colors.white),
+          "Log In",
+          style: AppFonts.s20w700.copyWith(color: Colors.white, fontFamily: "Inter"),
         ),
       ),
     );

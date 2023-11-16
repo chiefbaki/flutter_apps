@@ -21,11 +21,11 @@ class RegPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
-                padding: const EdgeInsets.only(right: 200),
+                padding: const EdgeInsets.only(right: 210),
                 child: TextButtonSign(),
               ),
               SizedBox(height: 100.h),
-              TextFieldReg(helpText: "Email or phone"),
+              TextFieldLogin(helpText: "Email or phone",),
               SizedBox(
                 height: 20.h,
               ),
@@ -37,11 +37,11 @@ class RegPage extends StatelessWidget {
               SizedBox(
                 height: 10.h,
               ),
-              Text("or".toUpperCase(), style: AppFonts.s16w300,),
+              Text("or".toUpperCase(), style: AppFonts.s16w300.copyWith(fontFamily: "Inter"),),
               SizedBox(
                 height: 10.h,
               ),
-              TransparentButton(textButton: "Continue with Google", icon: _googleLogo,),
+              TransparentButton(textButton: "Continue with Google".padRight(20), icon: _googleLogo,),
               SizedBox(
                 height: 15.h,
               ),

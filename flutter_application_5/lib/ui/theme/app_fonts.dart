@@ -7,7 +7,7 @@ abstract class AppFonts {
       TextStyle(fontSize: 16, fontWeight: FontWeight.w400);
 
   static TextStyle s11w400 =
-      TextStyle(fontSize: 11, fontWeight: FontWeight.w400);
+      TextStyle(fontSize: 11, fontWeight: FontWeight.w400, fontFamily: "Inter");
 
   static TextStyle s20w700 =
       TextStyle(fontSize: 20, fontWeight: FontWeight.w700);

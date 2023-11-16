@@ -23,10 +23,11 @@ class _TransparentButtonState extends State<TransparentButton> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Image.network("https://static-00.iconduck.com/assets.00/google-icon-2048x2048-czn3g8x8.png"),
+              //Image.network("https://static-00.iconduck.com/assets.00/google-icon-2048x2048-czn3g8x8.png"),
+              Image.asset(widget.icon, width: 35.w, height: 35.h,),
               Text(
                 widget.textButton,
-                style: AppFonts.s16w400.copyWith(color: Colors.black),
+                style: AppFonts.s16w400.copyWith(color: Colors.black, fontFamily: "Imprima"),
               ),
             ],
           ),

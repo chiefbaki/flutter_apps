@@ -16,7 +16,7 @@ class _TextButtonSignState extends State<TextButtonSign> {
         onPressed: () {},
         child: Text(
           "Sign in",
-          style: AppFonts.s48w400.copyWith(color: Colors.black),
+          style: AppFonts.s48w400.copyWith(color: Colors.black, fontFamily: "Imprima"),
         ));
   }
 }
@@ -35,7 +35,7 @@ class _TextButtonRegState extends State<TextButtonReg> {
         onPressed: () {},
         child: Text(
           "Don't Have an account yet?",
-          style: AppFonts.s15w300.copyWith(color: Colors.black),
+          style: AppFonts.s15w300.copyWith(color: Colors.black, fontFamily: "Inter"),
         ));
   }
 }
@@ -56,7 +56,7 @@ class _TextButtonSignUpState extends State<TextButtonSignUp> {
         onPressed: () {},
         child: Text(
           "sign up".toUpperCase(),
-          style: AppFonts.s13w700.copyWith(color: AppColors.signInColor),
+          style: AppFonts.s13w700.copyWith(color: AppColors.signInColor, fontFamily: "Inter"),
         ));
   }
 }
