@@ -1,0 +1,53 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_application_5/ui/theme/app_colors.dart';
+import 'package:flutter_application_5/ui/theme/app_fonts.dart';
+
+class TextFieldReg extends StatefulWidget {
+  final String helpText;
+  final String underText;
+  bool passwordVisible;
+  TextFieldReg(
+      {super.key, required this.helpText, this.passwordVisible = true, this.underText = ''});
+
+  @override
+  State<TextFieldReg> createState() => _TextFieldRegState();
+}
+
+class _TextFieldRegState extends State<TextFieldReg> {
+  final TextEditingController login = TextEditingController();
+  final TextEditingController password = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          widget.helpText.toUpperCase(),
+          style: AppFonts.s16w400.copyWith(color: AppColors.buttonLogInColor),
+          textAlign: TextAlign.start,
+        ),
+        TextField(
+            controller: password,
+            obscureText: widget.passwordVisible,
+            decoration: InputDecoration(
+              helperText: widget.underText,
+              helperStyle: AppFonts.s11w400.copyWith(color: Colors.black),
+                suffixIcon: IconButton(
+                    onPressed: () {
+                      setState(() {
+                        widget.passwordVisible = !widget.passwordVisible;
+                      });
+                    },
+                    icon: Icon(widget.passwordVisible
+                        ? Icons.visibility_off
+                        : Icons.visibility)),
+                focusedBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: AppColors.textFieldColor)),
+                border: UnderlineInputBorder(
+                    borderSide: BorderSide(color: AppColors.textFieldColor)))),
+      ],
+    ));
+  }
+}
