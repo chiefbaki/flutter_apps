@@ -39,8 +39,8 @@ class _TextFieldRegState extends State<TextFieldReg> {
             obscuringCharacter: "●",
             decoration: InputDecoration(
                 contentPadding: EdgeInsets.only(top: 20),
-                helperText: widget.underText,
-                helperStyle: AppFonts.s11w400.copyWith(color: Colors.black),
+                //helperText: widget.underText,
+                //helperStyle: AppFonts.s11w400.copyWith(color: Colors.black),
                 suffixIcon: IconButton(
                     onPressed: () {
                       setState(() {
@@ -86,8 +86,6 @@ class _TextFieldLoginState extends State<TextFieldLogin> {
             controller: login,
             style: AppFonts.s16w400.copyWith(color: AppColors.obscureTextColor, fontFamily: "Roboto"),
             decoration: InputDecoration(
-                helperText: widget.underText,
-                helperStyle: AppFonts.s11w400.copyWith(color: Colors.black),
                 focusedBorder: UnderlineInputBorder(
                     borderSide: BorderSide(color: AppColors.textFieldColor)),
                 border: UnderlineInputBorder(

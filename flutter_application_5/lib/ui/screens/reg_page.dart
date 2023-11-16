@@ -30,6 +30,7 @@ class RegPage extends StatelessWidget {
                 height: 20.h,
               ),
               TextFieldReg(helpText: "password", passwordVisible: true, underText: "Forget password?",),
+              TextButtonForget(),
               SizedBox(
                 height: 30.h,
               ),
@@ -52,7 +53,7 @@ class RegPage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  TextButtonReg(),
+                  TextButtonReg(text: "Don't Have an account", style: AppFonts.s15w300.copyWith(color: Colors.black, fontFamily: "Inter"),),
                   SizedBox(
                     width: 30.w,
                   ),
