@@ -69,7 +69,7 @@ class RegPage extends StatelessWidget {
                 TextData(
                   labelText: "Введите пароль",
                   obscureTextPass: true,
-                  icon: Icon(Icons.visibility),
+                  icon: Icon(Icons.remove_red_eye_outlined),
                 ),
                 SizedBox(
                   height: 30,
@@ -85,52 +85,6 @@ class RegPage extends StatelessWidget {
     );
   }
 }
-
-// class TextData extends StatelessWidget {
-//   final String labelText;
-//   final bool obscureTextPass;
-//   final TextInputType textType;
-//   final Icon? icon;
-//   const TextData(
-//       {super.key,
-//       required this.labelText,
-//       this.obscureTextPass = false,
-//       this.textType = TextInputType.text, 
-//       this.icon});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       child: Column(
-//         mainAxisAlignment: MainAxisAlignment.center,
-//         children: [
-//           TextField(
-//             obscureText: obscureTextPass,
-//             keyboardType: textType,
-//             decoration: InputDecoration(
-//                 hintText: labelText,
-//                 disabledBorder: OutlineInputBorder(
-//                   borderSide: BorderSide(
-//                     color: Colors.white
-//                   )
-//                 ),
-//                 suffixIcon: icon,
-//                 suffixIconColor: Colors.white,
-//                 hintStyle: TextStyle(
-//                     fontWeight: FontWeight.w400,
-//                     fontSize: 16,
-//                     color: Colors.white),
-//                 border: OutlineInputBorder(
-//                     borderRadius: BorderRadius.circular(15),
-//                     borderSide: BorderSide(
-//                       width: 1,
-//                     ))),
-//           )
-//         ],
-//       ),
-//     );
-//   }
-// }
 
 
 class TextData extends StatefulWidget {

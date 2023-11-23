@@ -7,7 +7,10 @@ class DataField extends StatelessWidget {
   final String hintText;
   final TextInputType keyboardType;
   const DataField(
-      {super.key, required this.title, this.keyboardType = TextInputType.text, this.hintText = ''});
+      {super.key,
+      required this.title,
+      this.keyboardType = TextInputType.text,
+      this.hintText = ''});
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +20,10 @@ class DataField extends StatelessWidget {
         Container(
           height: 70.h,
           child: TextField(
+            controller: TextEditingController(text: '    '),
             keyboardType: keyboardType,
             decoration: InputDecoration(
-              contentPadding: EdgeInsets.symmetric(vertical: 20),
+                contentPadding: EdgeInsets.symmetric(vertical: 20),
                 hintText: hintText,
                 filled: true,
                 fillColor: Colors.white,

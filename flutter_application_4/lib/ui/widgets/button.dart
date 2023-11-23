@@ -18,7 +18,9 @@ class _ButtonState extends State<Button> {
       width: double.infinity,
       height: 48.h,
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          
+        },
         child: Text("Get location", style: AppFonts.s16w500,),
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColors.deepBlue,
