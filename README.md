@@ -18,4 +18,13 @@
 # task 5
 <img src="https://github.com/chiefbaki/flutter_mega/assets/61545789/9e5ef192-c90c-4502-9f1e-58b58b4cc3ae" width="300" height="620">
 
+# task 6
+<img src="https://github.com/chiefbaki/flutter_mega/assets/61545789/d475ec7c-cdb0-4e8e-a020-16e5d8b75dcd" width="300" height="620">
+
+<img src="https://github.com/chiefbaki/flutter_mega/assets/61545789/739e6669-fbc0-4ba0-b8f3-3beccc860502" width="300" height="620">
+
+<img src="https://github.com/chiefbaki/flutter_mega/assets/61545789/2fa81b69-d50d-4893-a71d-06151b3cb6ea" width="300" height="620">
+
+
+
 
