@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_6/core/app_consts.dart';
 import 'package:flutter_application_6/presentation/theme/app_colors.dart';
 import 'package:flutter_application_6/presentation/theme/app_fonts.dart';
 import 'package:flutter_application_6/presentation/widgets/button/leading_btn.dart';
 import 'package:flutter_application_6/presentation/widgets/button/welcome_btn.dart';
+import 'package:flutter_application_6/presentation/widgets/shared_prefs.dart';
 import 'package:flutter_application_6/presentation/widgets/text_field/input_data.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class CreatePage extends StatefulWidget {
   const CreatePage({super.key});
@@ -47,7 +50,11 @@ class _CreatePageState extends State<CreatePage> {
               const Spacer(),
               Padding(
                 padding: const EdgeInsets.only(bottom: 20),
-                child: WelcomeBtn(btnText: "Далее", onpressed: (){}),
+                child: WelcomeBtn(btnText: "Далее", onpressed: () async{
+                  final SharedPreferences prefs = SharedPref.prefs;;
+                  await prefs.setString(AppConsts.name, controllerName.text);
+                  await prefs.setString(AppConsts.surname, controllerSurname.text);
+                }),
               )
             ],
           ),

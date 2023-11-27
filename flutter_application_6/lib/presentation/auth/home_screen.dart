@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_6/presentation/create_profile_screen.dart';
-import 'package:flutter_application_6/presentation/login_screen.dart';
+import 'package:flutter_application_6/presentation/auth/create_profile_screen.dart';
+import 'package:flutter_application_6/presentation/auth/login_screen.dart';
+import 'package:flutter_application_6/presentation/home/home_screen.dart';
 import 'package:flutter_application_6/presentation/theme/app_colors.dart';
 import 'package:flutter_application_6/presentation/theme/app_fonts.dart';
 import 'package:flutter_application_6/presentation/widgets/button/settings_btn.dart';
@@ -8,14 +9,14 @@ import 'package:flutter_application_6/presentation/widgets/button/welcome_btn.da
 import 'package:flutter_application_6/presentation/widgets/welcome_row/welcome_row.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class Home extends StatefulWidget {
-  const Home({super.key});
+class MainPage extends StatefulWidget {
+  const MainPage({super.key});
 
   @override
-  State<Home> createState() => _HomeState();
+  State<MainPage> createState() => _MainPageState();
 }
 
-class _HomeState extends State<Home> {
+class _MainPageState extends State<MainPage> {
 
   void onPressed(){}
 
