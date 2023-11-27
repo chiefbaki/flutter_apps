@@ -6,4 +6,5 @@ abstract class AppColors{
   static const Color fontColor = Colors.black;
   static const Color textField = Color(0xff333333);
   static const Color arrowColor = Color(0xff007AFF);
+  static const Color circleAvatar = Color(0xffC4C4C4);
 }

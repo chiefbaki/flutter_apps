@@ -47,7 +47,7 @@ class _WelcomeRowItemState extends State<WelcomeRowItem> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(10.0),
-      child:  Row(
+      child: Row(
         children: [
           SizedBox(
             height: 24.h,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_6/presentation/create_profile_screen.dart';
 import 'package:flutter_application_6/presentation/login_screen.dart';
 import 'package:flutter_application_6/presentation/theme/app_colors.dart';
 import 'package:flutter_application_6/presentation/theme/app_fonts.dart';
@@ -39,14 +40,14 @@ class _HomeState extends State<Home> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("Зачем нужен профиль?", style: AppFonts.s22w500,),
+            const Text("Зачем нужен профиль?", style: AppFonts.s22w500,),
             SizedBox(
               height: 15.h,
             ),
-            WelcomeRow(),
-            // SizedBox(
-            //   height: 20.h,
-            // ),
+            const WelcomeRow(),
+            SizedBox(
+              height: 20.h,
+            ),
             WelcomeBtn(btnText: "Войти", onpressed: navigator)
             ],
         ),

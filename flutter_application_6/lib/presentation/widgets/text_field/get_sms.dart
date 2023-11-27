@@ -1,56 +1,55 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_6/presentation/theme/app_colors.dart';
 import 'package:flutter_application_6/presentation/theme/app_fonts.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class GetSms extends StatefulWidget {
-  const GetSms({super.key});
+class GetSms extends StatelessWidget {
+  final String? errorText;
+  final TextEditingController controller;
+  const GetSms({super.key, required this.errorText, required this.controller});
 
-  @override
-  State<GetSms> createState() => _GetSmsState();
-}
-
-class _GetSmsState extends State<GetSms> {
-
-  final TextEditingController controller = TextEditingController();
-
-  @override
-  void dispose() {
-    controller.dispose();
-    super.dispose();
+  void clear() {
+    controller.clear();
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Padding(
-        padding: EdgeInsets.all(10.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-              TextField(
-                controller: controller,
-                obscureText: true,
-                keyboardType: TextInputType.phone,
-                decoration: InputDecoration(
-                  prefix: Text("Код  "),
-                  prefixStyle: AppFonts.s18w600,
-                  suffixIcon: CircleAvatar(
-                    radius: 14.5.r,
-                    backgroundColor: AppColors.arrowColor,
-                    child: IconButton(onPressed: (){}, icon: Icon(Icons.close, size: 15, color: Color(0xff333333),)),
-                  
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          TextField(
+            textAlign: TextAlign.center,
+            controller: controller,
+            style: AppFonts.s18w600.copyWith(color: AppColors.fontColor),
+            obscureText: true,
+            maxLength: 4,
+            obscuringCharacter: "*",
+            keyboardType: TextInputType.phone,
+            decoration: InputDecoration(
+                counterText: '',
+                prefix: const Text("Код"),
+                prefixStyle: AppFonts.s18w600,
+                suffixIcon: Padding(
+                  padding: const EdgeInsets.all(4.0),
+                  child: CircleAvatar(
+                    radius: 15,
+                    backgroundColor: AppColors.circleAvatar,
+                    child: IconButton(
+                        onPressed: clear,
+                        icon: const Icon(
+                          Icons.close,
+                          size: 25,
+                          color: Color(0xff333333),
+                        )),
                   ),
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: AppColors.textField)
-                  ),
-                  enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: AppColors.fontColor)
-                  )
                 ),
-              ),
-          ],
-        ),
+                errorText: errorText,
+                focusedBorder: const UnderlineInputBorder(
+                    borderSide: BorderSide(color: AppColors.textField)),
+                enabledBorder: const UnderlineInputBorder(
+                    borderSide: BorderSide(color: AppColors.fontColor))),
+          ),
+        ],
       ),
     );
   }

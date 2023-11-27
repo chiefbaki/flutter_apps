@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_6/presentation/theme/app_colors.dart';
 
 class LeadingBtn extends StatefulWidget {
   final Icon icon;
@@ -16,7 +17,8 @@ class _LeadingBtnState extends State<LeadingBtn> {
       onPressed: () {
         Navigator.pop(context);
       },
-      icon: widget.icon
+      icon: widget.icon,
+      color: AppColors.fontColor.withOpacity(0.54),
     );
   }
 }
