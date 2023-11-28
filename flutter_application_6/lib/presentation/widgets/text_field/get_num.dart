@@ -31,10 +31,10 @@ class _GetNumState extends State<GetNum> {
               TextField(
                 controller: widget.controller,
                 keyboardType: TextInputType.phone,
-                maxLength: 9,
+                maxLength: 13,
                 decoration: const InputDecoration(
                   counterText: '',
-                  hintText: "0 ___ __ __ __",
+                  hintText: "+996 ___ __ __ __",
                   hintStyle: AppFonts.s17w700,
                   helperText: "На указанный вами номер придет\nоднократное СМС-сообщение с кодом\nподтверждения.",
                   helperStyle: AppFonts.s15w400,

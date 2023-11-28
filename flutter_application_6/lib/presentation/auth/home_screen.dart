@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_6/presentation/auth/create_profile_screen.dart';
 import 'package:flutter_application_6/presentation/auth/login_screen.dart';
-import 'package:flutter_application_6/presentation/home/home_screen.dart';
 import 'package:flutter_application_6/presentation/theme/app_colors.dart';
 import 'package:flutter_application_6/presentation/theme/app_fonts.dart';
 import 'package:flutter_application_6/presentation/widgets/button/settings_btn.dart';
@@ -21,7 +19,7 @@ class _MainPageState extends State<MainPage> {
   void onPressed(){}
 
   void navigator(){
-    Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+    Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginPage()));
   }
 
   @override
@@ -29,7 +27,10 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       appBar: AppBar(
         actions: [
-          Settingbtn(onPressed: onPressed),
+          Padding(
+            padding: const EdgeInsets.only(right: 16),
+            child: Settingbtn(onPressed: onPressed),
+          ),
           ],
         title: Text(
           "Профиль",

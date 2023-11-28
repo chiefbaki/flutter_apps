@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_6/presentation/auth/home_screen.dart';
 import 'package:flutter_application_6/presentation/splash_screen.dart';
 import 'package:flutter_application_6/presentation/theme/app_colors.dart';
 import 'package:flutter_application_6/presentation/widgets/shared_prefs.dart';
@@ -17,11 +16,11 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
             scaffoldBackgroundColor: AppColors.bgColor,
-            appBarTheme: AppBarTheme(
+            appBarTheme: const AppBarTheme(
               elevation: 0.5,
               backgroundColor: AppColors.bgColor,
             )),
-        home: SharedPref(child: SplashScreen()),
+        home: SharedPref(child: const SplashScreen()),
       ),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_application_6/resources/resources.dart';
+import 'package:flutter_svg/svg.dart';
 
 class Settingbtn extends StatefulWidget {
   final Function() onPressed;
@@ -12,13 +13,9 @@ class Settingbtn extends StatefulWidget {
 class _SettingbtnState extends State<Settingbtn> {
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      onPressed: () {},
-      icon: Icon(
-        Icons.settings,
-        size: 24.w,
-      ),
-      color: Colors.black.withOpacity(0.75),
+    return InkWell(
+      onTap: widget.onPressed,
+      child: SvgPicture.asset(AppSvg.settings),
     );
   }
 }

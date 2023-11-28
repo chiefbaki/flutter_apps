@@ -22,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void routing() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     bool isLogined = prefs.getBool(AppConsts.isLogined) ?? false;
-    await Future.delayed(const Duration(seconds: 2));
+   // await Future.delayed(const Duration(seconds: 2));
     if (isLogined){
       // ignore: use_build_context_synchronously
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomePage()));

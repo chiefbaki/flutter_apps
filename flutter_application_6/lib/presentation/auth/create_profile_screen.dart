@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_6/core/app_consts.dart';
+import 'package:flutter_application_6/presentation/home/home_screen.dart';
 import 'package:flutter_application_6/presentation/theme/app_colors.dart';
 import 'package:flutter_application_6/presentation/theme/app_fonts.dart';
 import 'package:flutter_application_6/presentation/widgets/button/leading_btn.dart';
@@ -25,7 +26,7 @@ class _CreatePageState extends State<CreatePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: LeadingBtn(icon: Icon(Icons.close,), onpressed: (){
+        leading: LeadingBtn(icon: const Icon(Icons.close,), onpressed: (){
           Navigator.pop(context);
         }),
         title: Text(
@@ -51,9 +52,12 @@ class _CreatePageState extends State<CreatePage> {
               Padding(
                 padding: const EdgeInsets.only(bottom: 20),
                 child: WelcomeBtn(btnText: "Далее", onpressed: () async{
-                  final SharedPreferences prefs = SharedPref.prefs;;
+                  final SharedPreferences prefs = SharedPref.prefs;
                   await prefs.setString(AppConsts.name, controllerName.text);
                   await prefs.setString(AppConsts.surname, controllerSurname.text);
+                  await prefs.setBool(AppConsts.isLogined, true);
+                  // ignore: use_build_context_synchronously
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage()));
                 }),
               )
             ],
