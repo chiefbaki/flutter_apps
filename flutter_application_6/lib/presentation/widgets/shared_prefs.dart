@@ -9,7 +9,7 @@ class SharedPref extends StatelessWidget {
   final Widget child;
   static late SharedPreferences prefs;
 
-  initPrefs() async {
+  Future<void> initPrefs() async {
     prefs = await SharedPreferences.getInstance();
   }
 

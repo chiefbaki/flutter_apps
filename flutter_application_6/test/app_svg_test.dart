@@ -6,6 +6,7 @@ import 'package:flutter_application_6/resources/resources.dart';
 void main() {
   test('app_svg assets test', () {
     expect(File(AppSvg.ambulance).existsSync(), isTrue);
+    expect(File(AppSvg.bookAdd).existsSync(), isTrue);
     expect(File(AppSvg.favorite).existsSync(), isTrue);
     expect(File(AppSvg.settings).existsSync(), isTrue);
     expect(File(AppSvg.spreadsheet).existsSync(), isTrue);
