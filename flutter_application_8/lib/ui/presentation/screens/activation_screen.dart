@@ -4,7 +4,8 @@ import 'package:flutter_application_8/ui/presentation/widgets/circles.dart';
 import 'package:flutter_application_8/ui/presentation/widgets/container_form.dart';
 
 class ActivationScreen extends StatefulWidget {
-  const ActivationScreen({super.key});
+  final int code;
+  const ActivationScreen({super.key, required this.code});
 
   @override
   State<ActivationScreen> createState() => _ActivationScreen();
@@ -51,12 +52,17 @@ class _ActivationScreen extends State<ActivationScreen> {
       ),
     );
   }
-  void checkCode(){
+
+  void checkCode() {
     final RegExp numericRegex = RegExp(r'^[0-9]+$');
-    if((controller.text.toString().length == 4) && (numericRegex.hasMatch(controller.text.toString()))){
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("True")));
-    }else{
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Wrong")));
+    if ((controller.text.toString().length == 4) &&
+        (numericRegex.hasMatch(controller.text.toString())) &&
+        (controller.text.toString()) == widget.code.toString()) {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text("True ${widget.code.toString()}")));
+    } else {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(const SnackBar(content: Text("Wrong")));
     }
   }
 }

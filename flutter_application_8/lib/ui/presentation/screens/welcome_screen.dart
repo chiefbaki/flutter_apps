@@ -1,3 +1,5 @@
+import 'dart:io';
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_8/ui/presentation/screens/activation_screen.dart';
 import 'package:flutter_application_8/ui/presentation/theme/app_colors.dart';
@@ -18,8 +20,14 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     if ((controller.text.toString().isNotEmpty) &&
         (controller.text.toString().length == 13) &&
         (controller.text.toString().startsWith("+996"))) {
-      Navigator.push(context,
-          MaterialPageRoute(builder: (context) => const ActivationScreen()));
+      int code = Random().nextInt(8999) + 1000;
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text(code.toString())));
+      setState(() {});
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => ActivationScreen(code: code)));
     } else {
       ScaffoldMessenger.of(context)
           .showSnackBar(const SnackBar(content: Text("Error")));
