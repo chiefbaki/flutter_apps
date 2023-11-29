@@ -14,6 +14,8 @@ class _TextDataState extends State<TextData> {
   Widget build(BuildContext context) {
     return TextField(
       controller: widget.controller,
+      keyboardType: TextInputType.phone,
+      style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w600, color: Colors.white),
       decoration: InputDecoration(
           filled: true,
           fillColor: Colors.white.withOpacity(0.2),

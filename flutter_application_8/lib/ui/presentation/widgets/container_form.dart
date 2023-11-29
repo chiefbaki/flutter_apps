@@ -4,7 +4,10 @@ import 'package:flutter_application_8/ui/presentation/widgets/buttons/sign_up_bt
 import 'package:flutter_application_8/ui/presentation/widgets/text_data.dart';
 
 class ContainerForm extends StatefulWidget {
-  const ContainerForm({super.key});
+  final String textFieldText;
+  final Function() onPressed;
+  final TextEditingController controller;
+  const ContainerForm({super.key, required this.textFieldText, required this.onPressed, required this.controller});
 
   @override
   State<ContainerForm> createState() => _ContainerFormState();
@@ -37,11 +40,11 @@ class _ContainerFormState extends State<ContainerForm> {
               const SizedBox(
                 height: 139,
               ),
-              TextData(controller: controller, hintText: "Phone"),
+              TextData(controller: widget.controller, hintText: widget.textFieldText),
               const SizedBox(
                 height: 102,
               ),
-              SignInBtn(onPressed: (){},),
+              SignInBtn(onPressed: widget.onPressed),
               const SizedBox(
                 height: 50,
               ),
