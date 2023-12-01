@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_8/ui/presentation/screens/activation_screen.dart';
@@ -23,7 +22,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
       int code = Random().nextInt(8999) + 1000;
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text(code.toString())));
-      setState(() {});
+      //setState(() {});
       Navigator.push(
           context,
           MaterialPageRoute(

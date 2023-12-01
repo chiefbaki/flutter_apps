@@ -4,6 +4,7 @@ class AppImg {
   AppImg._();
 
   static const String ambulance = 'assets/imgs/ambulance.svg';
+  static const String bell = 'assets/imgs/bell.svg';
   static const String bookAdd = 'assets/imgs/book-add.svg';
   static const String collection = 'assets/imgs/collection.svg';
   static const String details = 'assets/imgs/details.svg';
