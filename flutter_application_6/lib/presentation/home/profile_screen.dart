@@ -1,8 +1,9 @@
 import 'dart:io';
-import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_6/presentation/home/tabbar_screens.dart/analyse.dart';
 import 'package:flutter_application_6/presentation/theme/app_colors.dart';
 import 'package:flutter_application_6/presentation/theme/app_fonts.dart';
+import 'package:flutter_application_6/presentation/widgets/button/add_doc.dart';
 import 'package:flutter_application_6/presentation/widgets/button/settings_btn.dart';
 import 'package:flutter_application_6/presentation/widgets/shared_prefs.dart';
 import 'package:flutter_application_6/resources/resources.dart';
@@ -89,23 +90,39 @@ class _ProfilePageState extends State<ProfilePage> {
             const SizedBox(
               height: 30,
             ),
-            TextButton(
-                onPressed: pickFile,
-                child: Center(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+            Flexible(
+              child: DefaultTabController(
+                  initialIndex: 1,
+                  length: 3,
+                  child: Column(
                     children: [
-                      SvgPicture.asset(AppSvg.bookAdd),
-                      SizedBox(
-                        width: 11.w,
+                      TabBar(
+                        labelColor: AppColors.tabbarLabelColor,
+                        tabs: [
+                          Tab(
+                            text: "Анализы",
+                            icon: SvgPicture.asset(AppImg.eyedropper),
+                          ),
+                          Tab(
+                            text: "Диагнозы",
+                            icon: SvgPicture.asset(AppImg.collection),
+                          ),
+                          Tab(
+                            text: "Рекомендации",
+                            icon: SvgPicture.asset(AppImg.details),
+                          ),
+                        ],
                       ),
-                      const Text(
-                        "Добавить документ",
-                        style: AppFonts.s15w500,
+                      const Expanded(
+                        child: TabBarView(children: [
+                          AnalyseScreen(btn: AddDoc(), imgDoc: AppImg.doc1, text: "У вас пока нет добавленных результатов\nанализов",),
+                          AnalyseScreen(btn: AddDoc(),  imgDoc: AppImg.doc2, text: "У вас пока нет добавленных диагнозов",),
+                          AnalyseScreen(imgDoc: AppImg.doc3, text: "У вас пока нет добавленных диагнозов",),
+                        ]),
                       )
                     ],
-                  ),
-                )),
+                  )),
+            )
           ],
         ),
       ),
@@ -152,14 +169,6 @@ class _ProfilePageState extends State<ProfilePage> {
             ));
   }
 
-  Future<void> pickFile() async {
-    FilePickerResult? result = await FilePicker.platform.pickFiles();
-    if (result != null) {
-      File file = File(result.files.single.path!);
-    } else {
-      debugPrint("error");
-    }
-  }
 
   Future<void> pickImg({required ImageSource source}) async {
     final ImagePicker picker = ImagePicker();

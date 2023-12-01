@@ -1,1 +1,1 @@
-part 'app_svg.dart';
+part 'app_img.dart';

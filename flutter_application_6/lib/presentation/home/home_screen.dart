@@ -73,24 +73,24 @@ class _HomePageState extends State<HomePage> {
     return [
       PersistentBottomNavBarItem(
           icon: SvgPicture.asset(
-            AppSvg.userPlus,
+            AppImg.userPlus,
           ),
           title: ("Доктора"),
           textStyle: AppFonts.s10w500),
       PersistentBottomNavBarItem(
-          icon: SvgPicture.asset(AppSvg.spreadsheet),
+          icon: SvgPicture.asset(AppImg.spreadsheet),
           title: ("Статьи"),
           textStyle: AppFonts.s10w500),
       PersistentBottomNavBarItem(
-          icon: SvgPicture.asset(AppSvg.ambulance),
+          icon: SvgPicture.asset(AppImg.ambulance),
           title: ("Вызов"),
           textStyle: AppFonts.s10w500),
       PersistentBottomNavBarItem(
-          icon: SvgPicture.asset(AppSvg.favorite),
+          icon: SvgPicture.asset(AppImg.favorite),
           title: ("Мои доктора"),
           textStyle: AppFonts.s10w500),
       PersistentBottomNavBarItem(
-          icon: SvgPicture.asset(AppSvg.user),
+          icon: SvgPicture.asset(AppImg.user),
           title: ("Профиль"),
           textStyle: AppFonts.s10w500),
     ];

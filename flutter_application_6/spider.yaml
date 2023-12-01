@@ -30,6 +30,7 @@ use_references_list: false
 package: resources
 
 groups:
-  - path: assets/svg
-    class_name: AppSvg
-    types: [ .svg ]
+  - path: assets/imgs
+    class_name: AppImg
+    types: [ .svg, .png ]
+

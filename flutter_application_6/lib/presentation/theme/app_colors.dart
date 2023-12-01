@@ -8,4 +8,6 @@ abstract class AppColors {
   static const Color arrowColor = Color(0xff007AFF);
   static const Color circleAvatar = Color(0xffC4C4C4);
   static const Color circleAvatarProfile = Color(0xffB6D8FF);
+  static const Color tabbarLabelColor = Color(0xff4C84CE);
+  static const Color docLabelColor = Color(0xff757575);
 }

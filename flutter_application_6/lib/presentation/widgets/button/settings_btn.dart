@@ -15,7 +15,7 @@ class _SettingbtnState extends State<Settingbtn> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: widget.onPressed,
-      child: SvgPicture.asset(AppSvg.settings),
+      child: SvgPicture.asset(AppImg.settings),
     );
   }
 }
