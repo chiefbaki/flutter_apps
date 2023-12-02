@@ -13,8 +13,17 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
-
   final TextEditingController _controller = TextEditingController();
+
+  final List<String> names = [
+    "Артимологи",
+    "Кардиологи",
+    "Кардиохирурги",
+    "Отолорингологи",
+    "Стоматологи"
+  ];
+
+  int selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -51,9 +60,12 @@ class _SearchScreenState extends State<SearchScreen> {
                   child: TextField(
                     controller: _controller,
                     decoration: InputDecoration(
-                      prefixIcon: const Icon(Icons.search, color: AppColors.searchFieldColors,),
-                      hintText: "Поиск врача",
-                      hintStyle: AppFonts.s17w400,
+                        prefixIcon: const Icon(
+                          Icons.search,
+                          color: AppColors.searchFieldColors,
+                        ),
+                        hintText: "Поиск врача",
+                        hintStyle: AppFonts.s17w400,
                         filled: true,
                         fillColor:
                             AppColors.searchFieldColors.withOpacity(0.12),
@@ -68,13 +80,72 @@ class _SearchScreenState extends State<SearchScreen> {
                 SizedBox(
                   width: 7.w,
                 ),
-                TextButton(onPressed: (){
-                  _controller.clear();
-                }, child: Text("Очистить", style: AppFonts.s14w600.copyWith(color: AppColors.docLabelColor),))
+                TextButton(
+                    onPressed: () {
+                      _controller.clear();
+                    },
+                    child: Text(
+                      "Очистить",
+                      style: AppFonts.s14w600
+                          .copyWith(color: AppColors.docLabelColor),
+                    ))
               ],
             ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.1,
+              child: ListView.builder(
+                  shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: names.length,
+                  itemBuilder: ((context, index) {
+                    return Choice(
+                      name: names[index],
+                      isSelected: selectedIndex == index,
+                      onSelected: (val) {
+                        selectedIndex = index;
+                        setState(() {});
+                      },
+                    );
+                  })),
+            )
           ],
         ),
+      ),
+    );
+  }
+}
+
+class Choice extends StatelessWidget {
+  final String name;
+  final bool isSelected;
+  final Function(bool) onSelected;
+  const Choice(
+      {super.key,
+      required this.name,
+      required this.isSelected,
+      required this.onSelected});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 5,
+      ),
+      child: ChoiceChip(
+        showCheckmark: false,
+        onSelected: onSelected,
+        backgroundColor: Colors.white,
+        selectedColor: AppColors.btnColor,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(4),
+          side: const BorderSide(color: Colors.black)
+        ),
+        label: Text(
+          name,
+          style: isSelected ? AppFonts.s15w400.copyWith(color: Colors.white) : AppFonts.s15w400.copyWith(color: Colors.black) ,
+        ),
+        disabledColor: AppColors.circleAvatar,
+        selected: isSelected,
       ),
     );
   }

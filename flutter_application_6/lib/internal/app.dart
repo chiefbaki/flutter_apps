@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
       builder: (context, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
+          useMaterial3: false,
             scaffoldBackgroundColor: AppColors.bgColor,
             appBarTheme: const AppBarTheme(
               elevation: 0.5,
