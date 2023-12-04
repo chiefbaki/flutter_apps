@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_6/presentation/home/profile_screen.dart';
+import 'package:flutter_application_6/presentation/home/search_screen.dart';
 import 'package:flutter_application_6/presentation/theme/app_fonts.dart';
 import 'package:flutter_application_6/resources/resources.dart';
 import 'package:flutter_svg/svg.dart';
@@ -17,9 +18,7 @@ class _HomePageState extends State<HomePage> {
       PersistentTabController(initialIndex: 4);
 
   final List<Widget> _screens = const [
-    Scaffold(
-      body: Center(child: Text("Доктора")),
-    ),
+    SearchScreen(), // Доктора
     Scaffold(
       body: Center(child: Text("Статьи")),
     ),
@@ -29,7 +28,7 @@ class _HomePageState extends State<HomePage> {
     Scaffold(
       body: Center(child: Text("Мои доктора")),
     ),
-    ProfilePage()
+    ProfilePage(), // Профиль
   ];
 
   @override
@@ -72,25 +71,23 @@ class _HomePageState extends State<HomePage> {
   List<PersistentBottomNavBarItem> _navBarsItems() {
     return [
       PersistentBottomNavBarItem(
-          icon: SvgPicture.asset(
-            AppImg.userPlus,
-          ),
+          icon: Icon(Icons.add),//SvgPicture.asset(AppImg.userPlus,),
           title: ("Доктора"),
           textStyle: AppFonts.s10w500),
       PersistentBottomNavBarItem(
-          icon: SvgPicture.asset(AppImg.spreadsheet),
+          icon: Icon(Icons.article), //SvgPicture.asset(AppImg.spreadsheet),
           title: ("Статьи"),
           textStyle: AppFonts.s10w500),
       PersistentBottomNavBarItem(
-          icon: SvgPicture.asset(AppImg.ambulance),
+          icon: Icon(Icons.car_crash), //SvgPicture.asset(AppImg.ambulance,),
           title: ("Вызов"),
           textStyle: AppFonts.s10w500),
       PersistentBottomNavBarItem(
-          icon: SvgPicture.asset(AppImg.favorite),
+          icon: Icon(Icons.favorite),//SvgPicture.asset(AppImg.favorite),
           title: ("Мои доктора"),
           textStyle: AppFonts.s10w500),
       PersistentBottomNavBarItem(
-          icon: SvgPicture.asset(AppImg.user),
+          icon: Icon(Icons.update_disabled_rounded), //SvgPicture.asset(AppImg.user),
           title: ("Профиль"),
           textStyle: AppFonts.s10w500),
     ];

@@ -11,4 +11,5 @@ abstract class AppColors {
   static const Color tabbarLabelColor = Color(0xff4C84CE);
   static const Color docLabelColor = Color(0xff757575);
   static const Color searchFieldColors = Color(0xff8E8E93);
+  static const Color listTileBackground = Color(0xffEFEFF3);
 }
