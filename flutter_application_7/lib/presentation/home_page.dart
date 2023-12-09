@@ -4,6 +4,8 @@ import 'package:flutter_application_7/model/model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:translator/translator.dart';
 
+
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -14,11 +16,17 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   String joke = "";
   bool isSelected = false;
+  
+  @override
+  void initState() {
+    super.initState();
+    getJoke();
+  }
+
   @override
   Widget build(BuildContext context) {
     SharedPreferences? prefs;
     
-    List<String> jokes = [];
 
     return Scaffold(
       appBar: AppBar(
