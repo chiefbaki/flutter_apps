@@ -1,10 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_7/model/model.dart';
+import 'package:flutter_application_7/presentation/favourite.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:translator/translator.dart';
-
-
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -16,8 +15,9 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   String joke = "";
   bool isSelected = false;
-  
-  @override
+  List<String> jokes = [];
+
+    @override
   void initState() {
     super.initState();
     getJoke();
@@ -25,16 +25,19 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    SharedPreferences? prefs;
-    
-
     return Scaffold(
       appBar: AppBar(
         title: const Text("Chak Norris"),
         elevation: 0,
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: getJoke,
+        onPressed: (){
+          getJoke();
+          isSelected = false;
+          setState(() {
+            
+          });
+        },
         child: const Icon(Icons.refresh),
       ),
       body: Padding(
@@ -56,36 +59,33 @@ class _HomePageState extends State<HomePage> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  
                   IconButton(
                       onPressed: () async {
                         isSelected = !isSelected;
-                        prefs = await SharedPreferences.getInstance();
+                        final SharedPreferences prefs = await SharedPreferences.getInstance();
                         isSelected
-                            ? prefs?.setString("joke", joke)
+                            ? prefs.setStringList("joke", <String>[joke])
                             : debugPrint("not selected");
                         setState(() {});
                       },
                       icon: Icon(
                         Icons.favorite,
                         color: isSelected ? Colors.red : Colors.white,
-                      )),
-                  TextButton(
+                      )),ElevatedButton(
                       onPressed: () {
+                        
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => FavotirePage(
-                                      prefs: prefs!,
-                                    )));
+                                builder: (context) => FavouritePage(jokes: jokes,)), 
+                              );
                       },
-                      child: const Text(
-                        "Favourite jokes",
-                        style: TextStyle(fontSize: 25),
-                      )),
+                      child: const Text("Favourites")),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      TextButton(
+                      ElevatedButton(
                           onPressed: () {
                             translate(joke, "en", "ru");
                             setState(() {});
@@ -93,11 +93,11 @@ class _HomePageState extends State<HomePage> {
                           child: const Text(
                             "ru",
                             style: TextStyle(
-                                fontSize: 25,
-                                color: Colors.white,
-                                decoration: TextDecoration.underline),
+                              fontSize: 25,
+                              color: Colors.white,
+                            ),
                           )),
-                      TextButton(
+                      ElevatedButton(
                           onPressed: () {
                             translate(joke, "ru", "en");
                             setState(() {});
@@ -105,9 +105,9 @@ class _HomePageState extends State<HomePage> {
                           child: const Text(
                             "en",
                             style: TextStyle(
-                                fontSize: 25,
-                                color: Colors.white,
-                                decoration: TextDecoration.underline),
+                              fontSize: 25,
+                              color: Colors.white,
+                            ),
                           )),
                     ],
                   ),
@@ -139,25 +139,14 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-class FavotirePage extends StatelessWidget {
-  final SharedPreferences prefs;
-  const FavotirePage({super.key, required this.prefs});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ListView.builder(itemBuilder: (context, index) {
-              String text = prefs.getString("joke") ?? "";
-              return Text(text.toString());
-            })
-          ],
-        ),
-      ),
-    );
+class SharedPrefs{
+  SharedPrefs(){
+    initShare();
   }
+
+  SharedPreferences? prefs;
+  Future<void> initShare() async{ 
+    prefs =  await SharedPreferences.getInstance();
+  }
+
 }
