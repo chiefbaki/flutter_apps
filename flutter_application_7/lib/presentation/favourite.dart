@@ -21,7 +21,7 @@ class _FavouritePageState extends State<FavouritePage> {
             future: localJoke(),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
-                return CircularProgressIndicator.adaptive();
+                return const CircularProgressIndicator.adaptive();
               } else if (snapshot.hasError) {
                 return Text('Error: ${snapshot.error}');
               } else {
@@ -33,7 +33,7 @@ class _FavouritePageState extends State<FavouritePage> {
                     children: jokes.map((joke) => Text(joke)).toList(),
                   );
                 } else {
-                  return Text('No jokes found.');
+                  return const Text('No jokes found.');
                 }
               }
             },

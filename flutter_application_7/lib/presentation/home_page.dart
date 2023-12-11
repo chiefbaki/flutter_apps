@@ -31,8 +31,8 @@ class _HomePageState extends State<HomePage> {
         elevation: 0,
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: (){
-          getJoke();
+        onPressed: () async {
+          await getJoke();
           isSelected = false;
           setState(() {
             
@@ -64,8 +64,9 @@ class _HomePageState extends State<HomePage> {
                       onPressed: () async {
                         isSelected = !isSelected;
                         final SharedPreferences prefs = await SharedPreferences.getInstance();
+                        jokes.add(joke);
                         isSelected
-                            ? prefs.setStringList("joke", <String>[joke])
+                            ? prefs.setStringList("joke", jokes)
                             : debugPrint("not selected");
                         setState(() {});
                       },
@@ -139,14 +140,4 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-class SharedPrefs{
-  SharedPrefs(){
-    initShare();
-  }
 
-  SharedPreferences? prefs;
-  Future<void> initShare() async{ 
-    prefs =  await SharedPreferences.getInstance();
-  }
-
-}
