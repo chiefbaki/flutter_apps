@@ -3,7 +3,7 @@ import 'package:flutter_application_10/features/presentation/theme/app_colors.da
 import 'package:flutter_application_10/features/presentation/theme/app_fonts.dart';
 
 class SearchWidget extends StatefulWidget {
-  const SearchWidget({super.key});
+  const SearchWidget({super.key,});
 
   @override
   State<SearchWidget> createState() => _SearchWidgetState();

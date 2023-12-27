@@ -7,4 +7,5 @@ abstract class AppFonts{
   static TextStyle s11w300 = const TextStyle(fontSize: 11, fontWeight: FontWeight.w300);
   static TextStyle s12w500 = const TextStyle(fontSize: 12, fontWeight: FontWeight.w500);
   static TextStyle s10w300 = const TextStyle(fontSize: 10, fontWeight: FontWeight.w300);
+  static TextStyle s15w500 = const TextStyle(fontSize: 15, fontWeight: FontWeight.w500);
 }

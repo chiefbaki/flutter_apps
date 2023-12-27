@@ -1,25 +1,3 @@
-import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_application_10/data/model/dio_settings.dart';
-
-class GetMovie {
-  Future<dynamic> getMovie() async {
-    final Dio dio = DioSettings().dio;
-    try {
-      final Response response = await dio
-          .get("http://www.omdbapi.com/?t=Terminator&y=1992");
-
-      if(response.statusCode == 200){
-        return MovieModel.fromJson(response.data);
-      }else{
-        debugPrint("Error ${response.statusCode}");
-      }
-    } catch (e) {
-      debugPrint(e.toString());
-    }
-  }
-}
-
 class MovieModel {
   String? title;
   String? year;
