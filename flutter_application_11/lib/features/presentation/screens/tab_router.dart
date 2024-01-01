@@ -34,8 +34,10 @@ class _DashboardPageState extends State<DashboardPage> {
       builder: (context, child) {
         final tabsRouter = AutoTabsRouter.of(context);
         return Scaffold(
+          
             body: child,
             bottomNavigationBar: BottomNavigationBar(
+              backgroundColor: Color(0xffE7EDF0),
               type: BottomNavigationBarType.fixed,
               selectedIconTheme: IconThemeData(color: AppColors.pinkColor),
               currentIndex: currentIndex,

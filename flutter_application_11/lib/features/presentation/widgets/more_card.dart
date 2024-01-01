@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_11/data/model/product_model.dart';
 import 'package:flutter_application_11/features/presentation/theme/app_colors.dart';
 import 'package:flutter_application_11/features/presentation/theme/app_fonts.dart';
 import 'package:flutter_application_11/features/presentation/widgets/favorite_btn.dart';
-import 'package:flutter_application_11/resources/resources.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MoreCard extends StatefulWidget {
@@ -23,7 +21,8 @@ class _MoreCardState extends State<MoreCard> {
       width: 172.w,
       height: 192.h,
       decoration: BoxDecoration(
-          color: Colors.grey, borderRadius: BorderRadius.circular(9)),
+          color: Colors.white,
+           borderRadius: BorderRadius.circular(9)),
       child: Center(
         child: Stack(children: [
           Column(
@@ -49,7 +48,7 @@ class _MoreCardState extends State<MoreCard> {
                           )),
                     ),
                   ),
-                  FavouriteBtn(),
+                  const FavouriteBtn(),
                 ],
               ),
               SizedBox(

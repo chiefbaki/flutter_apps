@@ -24,146 +24,206 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                height: 78.h,
-              ),
-              Row(
-                children: [
-                  Text(
-                    "Discover",
-                    style: AppFonts.s36w700.copyWith(color: Colors.black),
-                  ),
-                  SizedBox(
-                    width: 130.w,
-                  ),
-                  CircleAvatar(
-                      radius: 18.r,
-                      backgroundColor: AppColors.circleColor,
-                      child: IconButton(
-                          onPressed: () {},
-                          icon: const Icon(
-                            Icons.search_outlined,
-                            color: Colors.black,
-                          ))),
-                  SizedBox(
-                    width: 6.6.w,
-                  ),
-                  CircleAvatar(
-                    radius: 19.r,
-                    backgroundColor: AppColors.circleColor,
-                    child: IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.notifications_outlined,
-                          color: Colors.black,
-                        )),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 30.h,
-              ),
-              SizedBox(
-                height: 40.h,
-                child: ListView.separated(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: nameProducts.length,
-                  itemBuilder: (context, index) {
-                    return TextButton(
-                        onPressed: () {
-                          selectedElement = nameProducts[index];
-                          setState(() {});
-                        },
-                        child: Container(
-                          decoration: const BoxDecoration(),
-                          child: Text(
-                            nameProducts[index],
-                            style: AppFonts.s20w700.copyWith(
-                                color: selectedElement == nameProducts[index]
-                                    ? Colors.black
-                                    : Colors.grey),
-                          ),
-                        ));
-                  },
-                  separatorBuilder: (context, index) {
-                    return SizedBox(
-                      width: 40.w,
-                    );
-                  },
-                ),
-              ),
-              SizedBox(
-                height: 15.h,
-              ),
-              Row(
-                children: [
-                  Column(
-                    children: [
-                      RotatedBtn(onPressed: () {}, text: "Upcoming"),
-                      SizedBox(
-                        height: 43.h,
-                      ),
-                      RotatedBtn(onPressed: () {}, text: "Featured"),
-                      SizedBox(
-                        height: 43.h,
-                      ),
-                      RotatedBtn(onPressed: () {}, text: "New")
-                    ],
-                  ),
-                  SizedBox(
-                    width: 40.w,
-                  ),
-                  Expanded(
-                    child: SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.4,
-                      child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          shrinkWrap: true,
-                          itemCount: ProductModelList().models.length,
-                          itemBuilder: ((context, index) {
-                            return Cards(
-                              name: ProductModelList().models[index].name,
-                              model: ProductModelList().models[index].model,
-                              price: ProductModelList().models[index].price,
-                              img: ProductModelList().models[index].img,
-                              color: AppColors.cardColors[index],
-                            );
-                          })),
-                    ),
-                  )
-                ],
-              ),
-              Column(
+      backgroundColor: Color(0xffE7EDF0),
+      body: Stack(children: [
+        Container(
+          height: 732.h,
+          decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius:
+                  BorderRadius.vertical(bottom: Radius.circular(100))),
+        ),
+        SizedBox(
+          child: Center(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    "More",
-                    style: AppFonts.s20w700.copyWith(color: Colors.black),
-                  ),
                   SizedBox(
-                    height: 16.h,
+                    height: 78.h,
                   ),
                   Row(
                     children: [
-                      MoreCard(name: "${ProductModelList().modelsMore[0].name + " " + ProductModelList().modelsMore[0].model}", img: ProductModelList().modelsMore[0].img, price: ProductModelList().models[0].price,),
-                      SizedBox(
-                        width: 15.w,
+                      Text(
+                        "Discover",
+                        style: AppFonts.s36w700.copyWith(color: Colors.black),
                       ),
-                      MoreCard(name: "${ProductModelList().modelsMore[1].name + " " + ProductModelList().modelsMore[1].model}", img: ProductModelList().modelsMore[1].img, price: ProductModelList().modelsMore[1].price,),
+                      SizedBox(
+                        width: 130.w,
+                      ),
+                      CircleAvatar(
+                          radius: 18.r,
+                          backgroundColor: AppColors.circleColor,
+                          child: IconButton(
+                              onPressed: () {},
+                              icon: const Icon(
+                                Icons.search_outlined,
+                                color: Colors.black,
+                              ))),
+                      SizedBox(
+                        width: 6.6.w,
+                      ),
+                      CircleAvatar(
+                        radius: 19.r,
+                        backgroundColor: AppColors.circleColor,
+                        child: IconButton(
+                            onPressed: () {},
+                            icon: const Icon(
+                              Icons.notifications_outlined,
+                              color: Colors.black,
+                            )),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 30.h,
+                  ),
+                  SizedBox(
+                    height: 40.h,
+                    child: ListView.separated(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: nameProducts.length,
+                      itemBuilder: (context, index) {
+                        return TextButton(
+                            onPressed: () {
+                              selectedElement = nameProducts[index];
+                              setState(() {});
+                            },
+                            child: Container(
+                              decoration: const BoxDecoration(),
+                              child: Text(
+                                nameProducts[index],
+                                style: AppFonts.s20w700.copyWith(
+                                    color:
+                                        selectedElement == nameProducts[index]
+                                            ? Colors.black
+                                            : Colors.grey),
+                              ),
+                            ));
+                      },
+                      separatorBuilder: (context, index) {
+                        return SizedBox(
+                          width: 40.w,
+                        );
+                      },
+                    ),
+                  ),
+                  SizedBox(
+                    height: 15.h,
+                  ),
+                  Row(
+                    children: [
+                      Column(
+                        children: [
+                          RotatedBtn(onPressed: () {}, text: "Upcoming"),
+                          SizedBox(
+                            height: 43.h,
+                          ),
+                          RotatedBtn(onPressed: () {}, text: "Featured"),
+                          SizedBox(
+                            height: 43.h,
+                          ),
+                          RotatedBtn(onPressed: () {}, text: "New")
+                        ],
+                      ),
+                      SizedBox(
+                        width: 40.w,
+                      ),
+                      Expanded(
+                        child: SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.4,
+                            child: ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              shrinkWrap: true,
+                              itemCount: ProductModelList().models.length,
+                              itemBuilder: (context, index) {
+                                return Cards(
+                                  currentIndexList:
+                                      ProductModelList().models.length,
+                                  name: ProductModelList().models[index].name,
+                                  model: ProductModelList().models[index].model,
+                                  price: ProductModelList().models[index].price,
+                                  img: ProductModelList().models[index].img,
+                                  color: AppColors.cardColors[index],
+                                );
+                              },
+                            )),
+                      )
+                    ],
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "More",
+                        style: AppFonts.s20w700.copyWith(color: Colors.black),
+                      ),
+                      SizedBox(
+                        height: 16.h,
+                      ),
+                      Row(
+                        children: [
+                          MoreCard(
+                            name:
+                                "${ProductModelList().modelsMore[0].name + " " + ProductModelList().modelsMore[0].model}",
+                            img: ProductModelList().modelsMore[0].img,
+                            price: ProductModelList().models[0].price,
+                          ),
+                          SizedBox(
+                            width: 15.w,
+                          ),
+                          MoreCard(
+                            name:
+                                "${ProductModelList().modelsMore[1].name + " " + ProductModelList().modelsMore[1].model}",
+                            img: ProductModelList().modelsMore[1].img,
+                            price: ProductModelList().modelsMore[1].price,
+                          ),
+                        ],
+                      )
                     ],
                   )
                 ],
-              )
-            ],
+              ),
+            ),
           ),
         ),
-      ),
+      ]),
     );
+  }
+}
+
+class HalfCircle extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    canvas.drawArc(
+        Rect.fromCircle(
+            center: Offset(size.width / 2, size.height / 2), radius: 97),
+        3.14,
+        3.14,
+        false,
+        customPaint());
+    canvas.drawPath(getTrianglePath(size, 20, 15), customPaint());
+  }
+
+  Path getTrianglePath(Size size, double x, double y) {
+    return Path()
+      ..moveTo(size.width / 2, 0)
+      ..lineTo(size.width / 2 + x, y)
+      ..lineTo(size.width / 2, y)
+      ..lineTo(size.width / 2 - x, y);
+  }
+
+  Paint customPaint() {
+    Paint paint = Paint();
+    paint.color = Color(0xff2EA760);
+    paint.isAntiAlias = true;
+    paint.strokeWidth = 10;
+    return paint;
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) {
+    return false;
   }
 }

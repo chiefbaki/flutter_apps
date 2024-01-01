@@ -1,4 +1,7 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_11/features/presentation/routes/app_router.gr.dart';
+import 'package:flutter_application_11/features/presentation/screens/bag_screen.dart';
 import 'package:flutter_application_11/features/presentation/theme/app_fonts.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -8,7 +11,15 @@ class Cards extends StatefulWidget {
   final String price;
   final String img;
   final Color color;
-  const Cards({super.key, required this.name, required this.model, required this.price, required this.img, required this.color});
+  final int currentIndexList;
+  const Cards(
+      {super.key,
+      required this.name,
+      required this.model,
+      required this.price,
+      required this.img,
+      required this.color,
+      required this.currentIndexList});
 
   @override
   State<Cards> createState() => _CardsState();
@@ -16,6 +27,8 @@ class Cards extends StatefulWidget {
 
 class _CardsState extends State<Cards> {
   bool isSelected = true;
+  int currentIndex = 0;
+  Key listViewKey = UniqueKey();
   @override
   Widget build(BuildContext context) {
     return Stack(children: [
@@ -23,8 +36,7 @@ class _CardsState extends State<Cards> {
         width: 242.w,
         height: 343.h,
         decoration: BoxDecoration(
-            color: widget.color,
-            borderRadius: BorderRadius.circular(20)),
+            color: widget.color, borderRadius: BorderRadius.circular(20)),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 10),
           child: SizedBox(
@@ -80,7 +92,19 @@ class _CardsState extends State<Cards> {
           height: 190.h,
           fit: BoxFit.cover,
         ),
-      )
+      ),
+      Positioned(
+          right: 100,
+          bottom: 31,
+          child: IconButton(
+              onPressed: () {
+
+
+              },
+              icon: const Icon(
+                Icons.arrow_forward,
+                color: Colors.white,
+              )))
     ]);
   }
 }

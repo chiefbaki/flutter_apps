@@ -9,6 +9,7 @@ class Images {
   static const String rectangle6 = 'assets/imgs/Rectangle_6.png';
   static const String heart = 'assets/imgs/heart.svg';
   static const String home2 = 'assets/imgs/home2.svg';
+  static const String iconSeta = 'assets/imgs/icon_seta.svg';
   static const String image8 = 'assets/imgs/image8.png';
   static const String location = 'assets/imgs/location.svg';
   static const String shoppingcart = 'assets/imgs/shoppingcart.svg';

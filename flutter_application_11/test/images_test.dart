@@ -11,6 +11,7 @@ void main() {
     expect(File(Images.rectangle6).existsSync(), isTrue);
     expect(File(Images.heart).existsSync(), isTrue);
     expect(File(Images.home2).existsSync(), isTrue);
+    expect(File(Images.iconSeta).existsSync(), isTrue);
     expect(File(Images.image8).existsSync(), isTrue);
     expect(File(Images.location).existsSync(), isTrue);
     expect(File(Images.shoppingcart).existsSync(), isTrue);
