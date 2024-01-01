@@ -1,9 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_11/data/model/product_model.dart';
 import 'package:flutter_application_11/features/presentation/theme/app_colors.dart';
 import 'package:flutter_application_11/features/presentation/theme/app_fonts.dart';
+import 'package:flutter_application_11/features/presentation/widgets/card.dart';
 import 'package:flutter_application_11/features/presentation/widgets/rotated_btn.dart';
-import 'package:flutter_application_11/resources/resources.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 @RoutePage()
@@ -113,75 +114,27 @@ class _HomeScreenState extends State<HomeScreen> {
                       RotatedBtn(onPressed: () {}, text: "New")
                     ],
                   ),
-                  Stack(children: [
-                    Container(
-                      width: 242.w,
-                      height: 343.h,
-                      decoration: BoxDecoration(
-                          color: AppColors.cardColors[0],
-                          borderRadius: BorderRadius.circular(20)),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 22, vertical: 10),
-                        child: SizedBox(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    "Nike",
-                                    style: AppFonts.s20w400
-                                        .copyWith(color: Colors.white),
-                                  ),
-                                  IconButton(
-                                      onPressed: () {
-                                        isSelected = !isSelected;
-                                        setState(() {});
-                                      },
-                                      icon: isSelected
-                                          ? Icon(
-                                              Icons.favorite_border,
-                                              color: Colors.white,
-                                            )
-                                          : Icon(
-                                              Icons.favorite_rounded,
-                                              color: Colors.white,
-                                            )),
-                                ],
-                              ),
-                              Text(
-                                "EPIC-REACT",
-                                style: AppFonts.s24w700
-                                    .copyWith(color: Colors.white),
-                              ),
-                              SizedBox(
-                                height: 8.h,
-                              ),
-                              Text(
-                                "130.00",
-                                style: AppFonts.s16w400
-                                    .copyWith(color: Colors.white),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
+                  SizedBox(
+                    width: 40.w,
+                  ),
+                  Expanded(
+                    child: SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.4,
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        shrinkWrap: true,
+                          itemCount: ProductModelList().models.length,
+                          itemBuilder: ((context, index) {
+                            return Cards(
+                              name: ProductModelList().models[index].name,
+                              model: ProductModelList().models[index].model,
+                              price: ProductModelList().models[index].price,
+                              img: ProductModelList().models[index].img,
+                              color: AppColors.cardColors[index],
+                            );
+                          })),
                     ),
-                    Positioned(
-                      right: -100,
-                      child: SizedBox(
-                        child: Image.asset(
-                          Images.tenisEpicReact,
-                          width: 290.w,
-                          height: 190.h,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    )
-                  ]),
+                  )
                 ],
               )
             ],
