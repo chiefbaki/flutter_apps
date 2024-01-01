@@ -9,6 +9,7 @@ void main() {
     expect(File(Images.home2).existsSync(), isTrue);
     expect(File(Images.location).existsSync(), isTrue);
     expect(File(Images.shoppingcart).existsSync(), isTrue);
+    expect(File(Images.tenisEpicReact).existsSync(), isTrue);
     expect(File(Images.user).existsSync(), isTrue);
   });
 }
