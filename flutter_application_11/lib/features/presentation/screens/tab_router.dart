@@ -52,14 +52,14 @@ class _DashboardPageState extends State<DashboardPage> {
                       colorFilter: currentIndex == 0
                           ? ColorFilter.mode(
                               AppColors.pinkColor, BlendMode.srcIn)
-                          : ColorFilter.mode(Colors.white, BlendMode.srcIn),
+                          : const ColorFilter.mode(Colors.white, BlendMode.srcIn),
                     ),
                     label: ""),
                 BottomNavigationBarItem(
                     icon: SvgPicture.asset(Images.heart, colorFilter: currentIndex == 1
                           ? ColorFilter.mode(
                               AppColors.pinkColor, BlendMode.srcIn)
-                          : ColorFilter.mode(Colors.black, BlendMode.srcIn),), label: ""),
+                          : const ColorFilter.mode(Colors.black, BlendMode.srcIn),), label: ""),
                 BottomNavigationBarItem(
                     icon: SvgPicture.asset(Images.location), label: ""),
                 BottomNavigationBarItem(

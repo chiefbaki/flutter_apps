@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_11/features/presentation/theme/app_colors.dart';
 import 'package:flutter_application_11/features/presentation/theme/app_fonts.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -45,11 +44,11 @@ class _CardsState extends State<Cards> {
                           setState(() {});
                         },
                         icon: isSelected
-                            ? Icon(
+                            ? const Icon(
                                 Icons.favorite_border,
                                 color: Colors.white,
                               )
-                            : Icon(
+                            : const Icon(
                                 Icons.favorite_rounded,
                                 color: Colors.white,
                               )),

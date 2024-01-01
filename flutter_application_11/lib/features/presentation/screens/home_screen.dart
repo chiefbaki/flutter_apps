@@ -4,6 +4,7 @@ import 'package:flutter_application_11/data/model/product_model.dart';
 import 'package:flutter_application_11/features/presentation/theme/app_colors.dart';
 import 'package:flutter_application_11/features/presentation/theme/app_fonts.dart';
 import 'package:flutter_application_11/features/presentation/widgets/card.dart';
+import 'package:flutter_application_11/features/presentation/widgets/more_card.dart';
 import 'package:flutter_application_11/features/presentation/widgets/rotated_btn.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -27,6 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
                 height: 78.h,
@@ -65,7 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
               SizedBox(
-                height: 42.h,
+                height: 30.h,
               ),
               SizedBox(
                 height: 40.h,
@@ -97,7 +99,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               SizedBox(
-                height: 39.h,
+                height: 15.h,
               ),
               Row(
                 children: [
@@ -121,8 +123,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: SizedBox(
                       height: MediaQuery.of(context).size.height * 0.4,
                       child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        shrinkWrap: true,
+                          scrollDirection: Axis.horizontal,
+                          shrinkWrap: true,
                           itemCount: ProductModelList().models.length,
                           itemBuilder: ((context, index) {
                             return Cards(
@@ -134,6 +136,27 @@ class _HomeScreenState extends State<HomeScreen> {
                             );
                           })),
                     ),
+                  )
+                ],
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "More",
+                    style: AppFonts.s20w700.copyWith(color: Colors.black),
+                  ),
+                  SizedBox(
+                    height: 16.h,
+                  ),
+                  Row(
+                    children: [
+                      MoreCard(name: "${ProductModelList().modelsMore[0].name + " " + ProductModelList().modelsMore[0].model}", img: ProductModelList().modelsMore[0].img, price: ProductModelList().models[0].price,),
+                      SizedBox(
+                        width: 15.w,
+                      ),
+                      MoreCard(name: "${ProductModelList().modelsMore[1].name + " " + ProductModelList().modelsMore[1].model}", img: ProductModelList().modelsMore[1].img, price: ProductModelList().modelsMore[1].price,),
+                    ],
                   )
                 ],
               )
