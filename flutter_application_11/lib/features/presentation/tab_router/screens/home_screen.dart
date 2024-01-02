@@ -29,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
         Container(
           height: 732.h,
           decoration: BoxDecoration(
-              color: Colors.white,
+              color: Colors.brown,
               borderRadius:
                   BorderRadius.vertical(bottom: Radius.circular(100))),
         ),

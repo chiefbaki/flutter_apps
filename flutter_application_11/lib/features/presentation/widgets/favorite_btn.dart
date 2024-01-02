@@ -19,11 +19,11 @@ class _FavouriteBtnState extends State<FavouriteBtn> {
         icon: isSelected
             ? const Icon(
                 Icons.favorite_border,
-                color: Colors.white,
+                color: Colors.black,
               )
             : const Icon(
                 Icons.favorite_rounded,
-                color: Colors.white,
+                color: Colors.black,
               ));
   }
 }

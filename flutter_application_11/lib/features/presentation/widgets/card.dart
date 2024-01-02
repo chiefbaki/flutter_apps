@@ -1,7 +1,5 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_11/features/presentation/routes/app_router.gr.dart';
-import 'package:flutter_application_11/features/presentation/screens/bag_screen.dart';
+import 'package:flutter_application_11/features/presentation/tab_router/screens/bag_screen.dart';
 import 'package:flutter_application_11/features/presentation/theme/app_fonts.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -98,8 +96,12 @@ class _CardsState extends State<Cards> {
           bottom: 31,
           child: IconButton(
               onPressed: () {
-
-
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => BagScreen(),
+                    maintainState: false,
+                  ),
+                );
               },
               icon: const Icon(
                 Icons.arrow_forward,

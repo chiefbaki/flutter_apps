@@ -9,17 +9,17 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i7;
-import 'package:flutter_application_11/features/presentation/screens/bag_screen.dart'
+import 'package:flutter_application_11/features/presentation/tab_router/screens/bag_screen.dart'
     as _i1;
-import 'package:flutter_application_11/features/presentation/screens/favourite_screen.dart'
+import 'package:flutter_application_11/features/presentation/tab_router/screens/favourite_screen.dart'
     as _i3;
-import 'package:flutter_application_11/features/presentation/screens/home_screen.dart'
+import 'package:flutter_application_11/features/presentation/tab_router/screens/home_screen.dart'
     as _i4;
-import 'package:flutter_application_11/features/presentation/screens/location_screen.dart'
+import 'package:flutter_application_11/features/presentation/tab_router/screens/location_screen.dart'
     as _i5;
-import 'package:flutter_application_11/features/presentation/screens/tab_router.dart'
+import 'package:flutter_application_11/features/presentation/tab_router/tab_router.dart'
     as _i2;
-import 'package:flutter_application_11/features/presentation/screens/user_screen.dart'
+import 'package:flutter_application_11/features/presentation/tab_router/screens/user_screen.dart'
     as _i6;
 
 abstract class $AppRouter extends _i7.RootStackRouter {
@@ -31,6 +31,7 @@ abstract class $AppRouter extends _i7.RootStackRouter {
       return _i7.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i1.BagScreen(),
+        
       );
     },
     DashboardRoute.name: (routeData) {
