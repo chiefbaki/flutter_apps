@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_11/data/model/product_model.dart';
 import 'package:flutter_application_11/features/presentation/theme/app_colors.dart';
 import 'package:flutter_application_11/features/presentation/theme/app_fonts.dart';
-import 'package:flutter_application_11/features/presentation/widgets/card.dart';
-import 'package:flutter_application_11/features/presentation/widgets/more_card.dart';
-import 'package:flutter_application_11/features/presentation/widgets/rotated_btn.dart';
+import 'package:flutter_application_11/features/presentation/widgets/cards/card.dart';
+import 'package:flutter_application_11/features/presentation/widgets/cards/more_card.dart';
+import 'package:flutter_application_11/features/presentation/widgets/buttons/rotated_btn.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 @RoutePage()
@@ -24,12 +24,12 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffE7EDF0),
+      backgroundColor: const Color(0xffE7EDF0),
       body: Stack(children: [
         Container(
           height: 732.h,
-          decoration: BoxDecoration(
-              color: Colors.brown,
+          decoration:const BoxDecoration(
+              color: Colors.white,
               borderRadius:
                   BorderRadius.vertical(bottom: Radius.circular(100))),
         ),

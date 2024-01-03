@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_11/features/presentation/theme/app_colors.dart';
 import 'package:flutter_application_11/features/presentation/theme/app_fonts.dart';
+import 'package:flutter_application_11/features/presentation/widgets/cards/bag_card.dart';
 import 'package:flutter_application_11/resources/resources.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -52,54 +52,27 @@ class _BagScreenState extends State<BagScreen> {
               height: 18.h,
             ),
             const Divider(),
+            SizedBox(
+              height: 64.h,
+            ),
             Padding(
                 padding: const EdgeInsets.only(right: 22, left: 22),
                 child: Column(
-                  children: [cards(), cards(), cards()],
+                  children: [
+                    BagCards(),
+                    SizedBox(
+                      height: 68.h,
+                    ),
+                    BagCards(),
+                    SizedBox(
+                      height: 68.h,
+                    ),
+                    BagCards()
+                  ],
                 ))
           ],
         ),
       ),
     );
   }
-}
-
-Widget cards() {
-  return Row(
-    children: [
-      Stack(
-        children: [
-          Positioned(
-            top: 70,
-            bottom: 20,
-            left: 20,
-            child: Container(
-              width: 126.w,
-              height: 119.h,
-              decoration: BoxDecoration(
-                  color: AppColors.bagCardColor,
-                  borderRadius: BorderRadius.circular(30)),
-            ),
-          ),
-          SizedBox(
-            width: 200.w,
-            height: 200.h,
-            child: Image.asset(
-              Images.rectangle13,
-            ),
-          ),
-        ],
-      ),
-      Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            "AIR JORDAN 5 LANEY JSP",
-            style: AppFonts.s14w700,
-          ),
-          Text("190.00", style: AppFonts.s24w700,)
-        ],
-      ),
-    ],
-  );
 }

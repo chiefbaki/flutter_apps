@@ -41,6 +41,7 @@ dependencies:
   auto_route_generator: ^7.3.2
   auto_route: ^7.8.4
   flutter_svg: ^2.0.9
+  provider: ^6.1.1
 
 dev_dependencies:
   flutter_test:
