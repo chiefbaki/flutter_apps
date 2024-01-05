@@ -55,21 +55,33 @@ class _BagScreenState extends State<BagScreen> {
             SizedBox(
               height: 64.h,
             ),
-            Padding(
-                padding: const EdgeInsets.only(right: 22, left: 22),
-                child: Column(
-                  children: [
-                    BagCards(),
-                    SizedBox(
-                      height: 68.h,
-                    ),
-                    BagCards(),
-                    SizedBox(
-                      height: 68.h,
-                    ),
-                    BagCards()
-                  ],
-                ))
+            Expanded(
+              child: SingleChildScrollView(
+                child: Padding(
+                    padding: const EdgeInsets.only(right: 22, left: 22),
+                    child: Column(
+                      children: [
+                        BagCards(),
+                        SizedBox(
+                          height: 68.h,
+                        ),
+                        BagCards(),
+                        SizedBox(
+                          height: 68.h,
+                        ),
+                        BagCards(),
+                        SizedBox(
+                          height: 68.h,
+                        ),
+                        BagCards(),
+                        SizedBox(
+                          height: 68.h,
+                        ),
+                        BagCards()
+                      ],
+                    )),
+              ),
+            )
           ],
         ),
       ),
