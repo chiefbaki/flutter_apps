@@ -34,16 +34,15 @@ class _DashboardPageState extends State<DashboardPage> {
       builder: (context, child) {
         final tabsRouter = AutoTabsRouter.of(context);
         return Scaffold(
-          
             body: child,
             bottomNavigationBar: BottomNavigationBar(
               backgroundColor: Color(0xffE7EDF0),
               type: BottomNavigationBarType.fixed,
-              selectedIconTheme: IconThemeData(color: AppColors.pinkColor),
               currentIndex: currentIndex,
               onTap: (index) {
+                currentIndex = index;
+                print(currentIndex);
                 setState(() {
-                  currentIndex = index;
                 });
                 tabsRouter.setActiveIndex(index);
               },
@@ -51,23 +50,53 @@ class _DashboardPageState extends State<DashboardPage> {
                 BottomNavigationBarItem(
                     icon: SvgPicture.asset(
                       Images.home2,
-                      colorFilter: currentIndex == 0
-                          ? ColorFilter.mode(
-                              AppColors.pinkColor, BlendMode.srcIn)
-                          : const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+                      colorFilter: ColorFilter.mode(
+                          currentIndex == 0
+                              ? AppColors.pinkColor
+                              : Color(0xff5C5C5C),
+                          BlendMode.srcIn),
                     ),
                     label: ""),
                 BottomNavigationBarItem(
-                    icon: SvgPicture.asset(Images.heart, colorFilter: currentIndex == 1
-                          ? ColorFilter.mode(
-                              AppColors.pinkColor, BlendMode.srcIn)
-                          : const ColorFilter.mode(Colors.black, BlendMode.srcIn),), label: ""),
+                    icon: SvgPicture.asset(
+                      Images.heart,
+                      colorFilter: ColorFilter.mode(
+                          currentIndex == 1
+                              ? AppColors.pinkColor
+                              : Color(0xff5C5C5C),
+                          BlendMode.srcIn),
+                    ),
+                    label: ""),
                 BottomNavigationBarItem(
-                    icon: SvgPicture.asset(Images.location), label: ""),
+                    icon: SvgPicture.asset(
+                      Images.location,
+                      colorFilter: ColorFilter.mode(
+                          currentIndex == 2
+                              ? AppColors.pinkColor
+                              : Color(0xff5C5C5C),
+                          BlendMode.srcIn),
+                    ),
+                    label: ""),
                 BottomNavigationBarItem(
-                    icon: SvgPicture.asset(Images.shoppingcart), label: ""),
+                    icon: SvgPicture.asset(
+                      Images.shoppingcart,
+                      colorFilter: ColorFilter.mode(
+                          currentIndex == 3
+                              ? AppColors.pinkColor
+                              : Color(0xff5C5C5C),
+                          BlendMode.srcIn),
+                    ),
+                    label: ""),
                 BottomNavigationBarItem(
-                    icon: SvgPicture.asset(Images.user), label: ""),
+                    icon: SvgPicture.asset(
+                      Images.user,
+                      colorFilter: ColorFilter.mode(
+                          currentIndex == 4
+                              ? AppColors.pinkColor
+                              : Color(0xff5C5C5C),
+                          BlendMode.srcIn),
+                    ),
+                    label: ""),
               ],
             ));
       },

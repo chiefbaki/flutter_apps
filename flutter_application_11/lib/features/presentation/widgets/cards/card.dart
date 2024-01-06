@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_11/features/presentation/tab_router/screens/bag_screen.dart';
 import 'package:flutter_application_11/features/presentation/theme/app_fonts.dart';
+import 'package:flutter_application_11/features/providers/shoppingcard_provider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 
 class Cards extends StatefulWidget {
   final String name;
@@ -26,7 +28,6 @@ class Cards extends StatefulWidget {
 class _CardsState extends State<Cards> {
   bool isSelected = true;
   int currentIndex = 0;
-  Key listViewKey = UniqueKey();
   @override
   Widget build(BuildContext context) {
     return Stack(children: [
@@ -50,6 +51,7 @@ class _CardsState extends State<Cards> {
                     ),
                     IconButton(
                         onPressed: () {
+                          
                           isSelected = !isSelected;
                           setState(() {});
                         },
@@ -98,7 +100,7 @@ class _CardsState extends State<Cards> {
               onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => BagScreen(),
+                    builder: (context) => const BagScreen(),
                     maintainState: false,
                   ),
                 );

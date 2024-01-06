@@ -6,7 +6,9 @@ import 'package:flutter_application_11/features/presentation/theme/app_fonts.dar
 import 'package:flutter_application_11/features/presentation/widgets/cards/card.dart';
 import 'package:flutter_application_11/features/presentation/widgets/cards/more_card.dart';
 import 'package:flutter_application_11/features/presentation/widgets/buttons/rotated_btn.dart';
+import 'package:flutter_application_11/features/providers/shoppingcard_provider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 
 @RoutePage()
 class HomeScreen extends StatefulWidget {
@@ -23,6 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
   bool isSelected = true;
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       backgroundColor: const Color(0xffE7EDF0),
       body: Stack(children: [
@@ -49,6 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         "Discover",
                         style: AppFonts.s36w700.copyWith(color: Colors.black),
                       ),
+                      Text(Provider.of<ShoppingCardProvider>(context, listen: false).temp.toString()),
                       SizedBox(
                         width: 130.w,
                       ),
