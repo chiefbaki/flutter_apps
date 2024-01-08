@@ -30,85 +30,90 @@ class _CardsState extends State<Cards> {
   int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
-    return Stack(children: [
-      Container(
-        width: 242.w,
-        height: 343.h,
-        decoration: BoxDecoration(
-            color: widget.color, borderRadius: BorderRadius.circular(20)),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 10),
-          child: SizedBox(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return Builder(
+      builder: (context) {
+        final vm = Provider.of<ShoppingCardProvider>(context, listen: false);
+        return Stack(children: [
+          Container(
+            width: 242.w,
+            height: 343.h,
+            decoration: BoxDecoration(
+                color: widget.color, borderRadius: BorderRadius.circular(20)),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 10),
+              child: SizedBox(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      widget.name,
-                      style: AppFonts.s20w400.copyWith(color: Colors.white),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          widget.name,
+                          style: AppFonts.s20w400.copyWith(color: Colors.white),
+                        ),
+                        IconButton(
+                            onPressed: () {
+                              vm.addCard({widget.name: [widget.model, widget.price]});
+                              isSelected = !isSelected;
+                              setState(() {});
+                            },
+                            icon: isSelected
+                                ? const Icon(
+                                    Icons.favorite_border,
+                                    color: Colors.white,
+                                  )
+                                : const Icon(
+                                    Icons.favorite_rounded,
+                                    color: Colors.white,
+                                  )),
+                      ],
                     ),
-                    IconButton(
-                        onPressed: () {
-                          
-                          isSelected = !isSelected;
-                          setState(() {});
-                        },
-                        icon: isSelected
-                            ? const Icon(
-                                Icons.favorite_border,
-                                color: Colors.white,
-                              )
-                            : const Icon(
-                                Icons.favorite_rounded,
-                                color: Colors.white,
-                              )),
+                    Text(
+                      widget.model,
+                      style: AppFonts.s24w700.copyWith(color: Colors.white),
+                    ),
+                    SizedBox(
+                      height: 8.h,
+                    ),
+                    Text(
+                      widget.price,
+                      style: AppFonts.s16w400.copyWith(color: Colors.white),
+                    ),
                   ],
                 ),
-                Text(
-                  widget.model,
-                  style: AppFonts.s24w700.copyWith(color: Colors.white),
-                ),
-                SizedBox(
-                  height: 8.h,
-                ),
-                Text(
-                  widget.price,
-                  style: AppFonts.s16w400.copyWith(color: Colors.white),
-                ),
-              ],
+              ),
             ),
           ),
-        ),
-      ),
-      Padding(
-        padding: const EdgeInsets.only(
-          top: 100,
-        ),
-        child: Image.asset(
-          widget.img,
-          width: 325.w,
-          height: 190.h,
-          fit: BoxFit.cover,
-        ),
-      ),
-      Positioned(
-          right: 100,
-          bottom: 31,
-          child: IconButton(
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => const BagScreen(),
-                    maintainState: false,
-                  ),
-                );
-              },
-              icon: const Icon(
-                Icons.arrow_forward,
-                color: Colors.white,
-              )))
-    ]);
+          Padding(
+            padding: const EdgeInsets.only(
+              top: 100,
+            ),
+            child: Image.asset(
+              widget.img,
+              width: 325.w,
+              height: 190.h,
+              fit: BoxFit.cover,
+            ),
+          ),
+          Positioned(
+              right: 100,
+              bottom: 31,
+              child: IconButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const BagScreen(),
+                        maintainState: false,
+                      ),
+                    );
+                  },
+                  icon: const Icon(
+                    Icons.arrow_forward,
+                    color: Colors.white,
+                  )))
+        ]);
+      }
+    );
   }
 }

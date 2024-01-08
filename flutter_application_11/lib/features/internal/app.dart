@@ -14,9 +14,9 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       builder: (context, child) {
         return ChangeNotifierProvider(
-          create: (context) {
-            ShoppingCardProvider();
-          },
+          create: (context) =>
+            ShoppingCardProvider(),
+          
           child: MaterialApp.router(
             routerConfig: AppRouter().config(),
             debugShowCheckedModeBanner: false,
