@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_11/features/presentation/theme/app_colors.dart';
 import 'package:flutter_application_11/features/presentation/theme/app_fonts.dart';
 import 'package:flutter_application_11/features/presentation/widgets/buttons/circular_btn.dart';
-import 'package:flutter_application_11/features/providers/shoppingcard_provider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:provider/provider.dart';
 
 class BagCards extends StatelessWidget {
   final String model;
@@ -14,11 +12,10 @@ class BagCards extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final vm = context.watch<ShoppingCardProvider>();
     return SizedBox(
-      width: 300,
+      width: 350,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Stack(children: [
             Container(

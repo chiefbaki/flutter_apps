@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_11/features/presentation/routes/app_router.gr.dart';
 import 'package:flutter_application_11/features/presentation/theme/app_colors.dart';
 import 'package:flutter_application_11/features/presentation/theme/app_fonts.dart';
 import 'package:flutter_application_11/features/presentation/widgets/cards/bag_card.dart';
@@ -21,10 +22,6 @@ class _BagScreenState extends State<BagScreen> {
   @override
   Widget build(BuildContext context) {
     final vm = Provider.of<ShoppingCardProvider>(context);
-    num sum = 0;
-    for(int i = 0; i < vm.shoppingCardList.length; i++){
-      sum += double.parse(vm.shoppingCardList[i][2]);
-    }
     return Scaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,7 +34,7 @@ class _BagScreenState extends State<BagScreen> {
               children: [
                 IconButton(
                     onPressed: () {
-                      context.router.pop();
+                      context.router.push(const HomeRoute());
                     },
                     icon: SvgPicture.asset(Images.iconSeta)),
                 Row(
@@ -61,17 +58,35 @@ class _BagScreenState extends State<BagScreen> {
           ),
           const Divider(),
           SizedBox(
-            height: 44.h,
+            height: 14.h,
           ),
-          Expanded(
+          Flexible(
             child: SizedBox(
-              height: MediaQuery.of(context).size.height * 1,
-              child: ListView.builder(itemCount: vm.shoppingCardList.length, itemBuilder: (context, index){
-                return Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 28),
-                  child: BagCards(model: vm.shoppingCardList[index][1], price: vm.shoppingCardList[index][2], img: vm.shoppingCardList[index][3],),
-                );
-              }), 
+              height: MediaQuery.of(context).size.height * 2,
+              child: ListView.separated(
+                shrinkWrap: false,
+                itemCount: vm.shoppingCardList.length,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.only(left: 32),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        BagCards(
+                          model: vm.shoppingCardList[index][1],
+                          price: vm.shoppingCardList[index][2],
+                          img: vm.shoppingCardList[index][3],
+                        ),
+                      ],
+                    ),
+                  );
+                },
+                separatorBuilder: (context, index) {
+                  return SizedBox(
+                    height: 32.h,
+                  );
+                },
+              ),
             ),
           ),
           SizedBox(
@@ -91,7 +106,7 @@ class _BagScreenState extends State<BagScreen> {
                         style: AppFonts.s16w700,
                       ),
                       Text(
-                        "\$${sum.toString()}",
+                        "\$${vm.sumOfproducts().toString()}",
                         style: AppFonts.s16w700,
                       )
                     ],
@@ -102,7 +117,7 @@ class _BagScreenState extends State<BagScreen> {
                   Center(
                       child: ElevatedButton(
                     onPressed: () {
-                      print(sum);
+                      print(vm.sumOfproducts());
                     },
                     style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.pinkColor,
