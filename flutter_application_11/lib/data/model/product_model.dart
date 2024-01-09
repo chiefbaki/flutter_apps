@@ -20,27 +20,27 @@ class ProductModelList {
         price: "130.00",
         img: Images.tenisEpicReact),
     ProductModel(
-        name: "Nike",
+        name: "Adidas",
         model: "air-max".toUpperCase(),
         price: "170.00",
         img: Images.tenisEpicReact1),
     ProductModel(
-        name: "Nike",
+        name: "Puma",
         model: "air-max".toUpperCase(),
         price: "250.00",
         img: Images.tenisEpicReact2),
     ProductModel(
-        name: "Nike",
+        name: "Venum",
         model: "AIR JORDAN 5 LANEY JSP".toUpperCase(),
         price: "190.00",
         img: Images.rectangle13),
     ProductModel(
-        name: "Nike",
+        name: "Under Armor",
         model: "HUSTLE-D-9-FLYEASE".toUpperCase(),
         price: "130.00",
         img: Images.rectangle2),
     ProductModel(
-        name: "Nike",
+        name: "Lining",
         model: "AIR-MAX-270-BIG-KIDS".toUpperCase(),
         price: "190.00",
         img: Images.rectangle6),
@@ -50,7 +50,7 @@ class ProductModelList {
         price: "170.00",
         img: Images.rectangle7),
     ProductModel(
-        name: "Nike",
+        name: "Zara",
         model: "air-force".toUpperCase(),
         price: "170.00",
         img: Images.image8),

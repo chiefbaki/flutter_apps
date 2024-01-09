@@ -50,8 +50,6 @@ class _DashboardPageState extends State<DashboardPage> {
                 });
                 tabsRouter.setActiveIndex(index);
                 }
-                
-                
               },
               items: [
                 BottomNavigationBarItem(

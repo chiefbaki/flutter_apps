@@ -23,17 +23,18 @@ class _HomeScreenState extends State<HomeScreen> {
   bool isSelected = true;
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       backgroundColor: const Color(0xffE7EDF0),
       body: Stack(children: [
         Container(
           height: 732.h,
-          decoration:const BoxDecoration(
-              color: Colors.brown,
-              borderRadius:
-                  BorderRadius.vertical(bottom: Radius.circular(100))),
-        ),
+        ),Transform.scale(
+              scale: 1.8,
+              child: const CircleAvatar(
+                backgroundColor: Color(0xffFFFFFF),
+                radius: 1000,
+              ),
+            ),
         SizedBox(
           child: Center(
             child: Padding(
