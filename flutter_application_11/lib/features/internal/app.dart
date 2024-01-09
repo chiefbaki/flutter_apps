@@ -19,6 +19,9 @@ class MyApp extends StatelessWidget {
           
           child: MaterialApp.router(
             routerConfig: AppRouter().config(),
+            theme: ThemeData(
+              fontFamily: "Sansation"
+            ),
             debugShowCheckedModeBanner: false,
           ),
         );
