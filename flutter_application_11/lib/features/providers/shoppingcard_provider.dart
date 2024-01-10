@@ -22,3 +22,6 @@ class ShoppingCardProvider extends ChangeNotifier {
     notifyListeners();
   }
 }
+
+
+

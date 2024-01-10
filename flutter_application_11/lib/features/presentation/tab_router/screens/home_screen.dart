@@ -27,14 +27,18 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: const Color(0xffE7EDF0),
       body: Stack(children: [
         Container(
-          height: 732.h,
-        ),Transform.scale(
-              scale: 1.8,
-              child: const CircleAvatar(
-                backgroundColor: Color(0xffFFFFFF),
-                radius: 1000,
-              ),
-            ),
+          height: 500.h,
+          decoration: const BoxDecoration(
+            color: Colors.brown
+          ),
+        ),
+        Transform.scale(
+          scale: 1.6,
+          child: const CircleAvatar(
+            backgroundColor: Colors.brown,
+            radius: 750,
+          ),
+        ),
         SizedBox(
           child: Center(
             child: Padding(

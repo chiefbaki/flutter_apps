@@ -57,9 +57,9 @@ class _BagScreenState extends State<BagScreen> {
             height: 18.h,
           ),
           const Divider(),
-          SizedBox(
-            height: 14.h,
-          ),
+          // SizedBox(
+          //   height: 14.h,
+          // ),
           Flexible(
             child: SizedBox(
               height: MediaQuery.of(context).size.height * 2,
@@ -67,19 +67,24 @@ class _BagScreenState extends State<BagScreen> {
                 shrinkWrap: false,
                 itemCount: vm.shoppingCardList.length,
                 itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.only(left: 32),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        BagCards(
+                  return  BagCards(
                           model: vm.shoppingCardList[index][1],
                           price: vm.shoppingCardList[index][2],
                           img: vm.shoppingCardList[index][3],
-                        ),
-                      ],
-                    ),
-                  );
+                        );
+                  // return Padding(
+                  //   padding: const EdgeInsets.only(left: 32),
+                  //   child: Column(
+                  //     crossAxisAlignment: CrossAxisAlignment.start,
+                  //     children: [
+                  //       BagCards(
+                  //         model: vm.shoppingCardList[index][1],
+                  //         price: vm.shoppingCardList[index][2],
+                  //         img: vm.shoppingCardList[index][3],
+                  //       ),
+                  //     ],
+                  //   ),
+                  // );
                 },
                 separatorBuilder: (context, index) {
                   return SizedBox(
