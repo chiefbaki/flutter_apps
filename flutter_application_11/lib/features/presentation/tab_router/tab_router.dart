@@ -37,7 +37,7 @@ class _DashboardPageState extends State<DashboardPage> {
         return Scaffold(
             body: child,
             bottomNavigationBar: BottomNavigationBar(
-              backgroundColor: Color(0xffE7EDF0),
+              backgroundColor: AppColors.bgColor,
               type: BottomNavigationBarType.fixed,
               currentIndex: currentIndex,
               onTap: (index) {

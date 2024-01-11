@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_11/data/model/product_model.dart';
 
 class ShoppingCardProvider extends ChangeNotifier {
-  List<List<dynamic>> shoppingCardList = [];
+  List<ProductModel> shoppingCardList = [];
   double sum = 0;
-
-  void addCard(List<dynamic> el) {
-    shoppingCardList.add(el);
-    print(shoppingCardList);
-    notifyListeners();
-  }
 
   double sumOfproducts(){
     for (int i = 0; i < shoppingCardList.length; i++) {
-      sum += double.parse(shoppingCardList[i][2]);
+      sum += double.parse(shoppingCardList[i].price);
     }
     return sum;
+  }
+
+  void addCard(ProductModel el){
+    shoppingCardList.add(el);
   }
 
   void clearList() {

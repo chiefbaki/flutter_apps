@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_11/data/model/product_model.dart';
 import 'package:flutter_application_11/features/presentation/theme/app_fonts.dart';
 import 'package:flutter_application_11/features/providers/shoppingcard_provider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -98,9 +99,10 @@ class _CardsState extends State<Cards> {
             bottom: 31,
             child: IconButton(
                 onPressed: () {
-                  vm.addCard(
-                    [widget.name, widget.model, widget.price, widget.img]
-                  );
+                  // vm.addCard(
+                  //   [widget.name, widget.model, widget.price, widget.img]
+                  // );
+                  vm.addCard(ProductModel(name: widget.name, model: widget.model, price: widget.price, img: widget.img));
                   print(vm.shoppingCardList);
                   print("work");
                 },

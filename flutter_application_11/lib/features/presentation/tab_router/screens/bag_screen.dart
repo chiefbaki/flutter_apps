@@ -4,6 +4,7 @@ import 'package:flutter_application_11/features/presentation/routes/app_router.g
 import 'package:flutter_application_11/features/presentation/theme/app_colors.dart';
 import 'package:flutter_application_11/features/presentation/theme/app_fonts.dart';
 import 'package:flutter_application_11/features/presentation/widgets/cards/bag_card.dart';
+import 'package:flutter_application_11/features/providers/changetheme_provider.dart';
 import 'package:flutter_application_11/features/providers/shoppingcard_provider.dart';
 import 'package:flutter_application_11/resources/resources.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -22,7 +23,9 @@ class _BagScreenState extends State<BagScreen> {
   @override
   Widget build(BuildContext context) {
     final vm = Provider.of<ShoppingCardProvider>(context);
+    final theme = Provider.of<ChangeThemeProvider>(context);
     return Scaffold(
+      backgroundColor: theme.changeTheme(),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -34,7 +37,7 @@ class _BagScreenState extends State<BagScreen> {
               children: [
                 IconButton(
                     onPressed: () {
-                      context.router.push(const HomeRoute());
+                      context.router.pop();
                     },
                     icon: SvgPicture.asset(Images.iconSeta)),
                 Row(
@@ -67,24 +70,14 @@ class _BagScreenState extends State<BagScreen> {
                 shrinkWrap: false,
                 itemCount: vm.shoppingCardList.length,
                 itemBuilder: (context, index) {
-                  return  BagCards(
-                          model: vm.shoppingCardList[index][1],
-                          price: vm.shoppingCardList[index][2],
-                          img: vm.shoppingCardList[index][3],
-                        );
-                  // return Padding(
-                  //   padding: const EdgeInsets.only(left: 32),
-                  //   child: Column(
-                  //     crossAxisAlignment: CrossAxisAlignment.start,
-                  //     children: [
-                  //       BagCards(
-                  //         model: vm.shoppingCardList[index][1],
-                  //         price: vm.shoppingCardList[index][2],
-                  //         img: vm.shoppingCardList[index][3],
-                  //       ),
-                  //     ],
-                  //   ),
-                  // );
+                  return  Padding(
+                    padding: const EdgeInsets.only(left: 32),
+                    child: BagCards(
+                            model: vm.shoppingCardList[index].model,
+                            price: vm.shoppingCardList[index].price,
+                            img: vm.shoppingCardList[index].img,
+                          ),
+                  );
                 },
                 separatorBuilder: (context, index) {
                   return SizedBox(

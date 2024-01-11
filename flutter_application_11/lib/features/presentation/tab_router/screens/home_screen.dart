@@ -6,7 +6,9 @@ import 'package:flutter_application_11/features/presentation/theme/app_fonts.dar
 import 'package:flutter_application_11/features/presentation/widgets/cards/card.dart';
 import 'package:flutter_application_11/features/presentation/widgets/cards/more_card.dart';
 import 'package:flutter_application_11/features/presentation/widgets/buttons/rotated_btn.dart';
+import 'package:flutter_application_11/features/providers/changetheme_provider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 
 @RoutePage()
 class HomeScreen extends StatefulWidget {
@@ -23,19 +25,20 @@ class _HomeScreenState extends State<HomeScreen> {
   bool isSelected = true;
   @override
   Widget build(BuildContext context) {
+    final vm = Provider.of<ChangeThemeProvider>(context);
     return Scaffold(
-      backgroundColor: const Color(0xffE7EDF0),
+      backgroundColor: AppColors.bgColor,
       body: Stack(children: [
         Container(
           height: 500.h,
-          decoration: const BoxDecoration(
-            color: Colors.brown
+          decoration: BoxDecoration(
+            color: vm.changeTheme()
           ),
         ),
         Transform.scale(
           scale: 1.6,
-          child: const CircleAvatar(
-            backgroundColor: Colors.brown,
+          child: CircleAvatar(
+            backgroundColor: vm.changeTheme(),
             radius: 750,
           ),
         ),
@@ -51,10 +54,15 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   Row(
                     children: [
-                      Text(
+                      TextButton(onPressed: (){
+                        vm.isDarkTheme();
+                        setState(() {
+                          
+                        });
+                      }, child: Text(
                         "Discover",
                         style: AppFonts.s36w700.copyWith(color: Colors.black),
-                      ),
+                      ),),
                       SizedBox(
                         width: 130.w,
                       ),
