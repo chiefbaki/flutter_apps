@@ -102,7 +102,7 @@ class _CardsState extends State<Cards> {
                   // vm.addCard(
                   //   [widget.name, widget.model, widget.price, widget.img]
                   // );
-                  vm.addCard(ProductModel(name: widget.name, model: widget.model, price: widget.price, img: widget.img));
+                  vm.addCard(ProductModel(name: widget.name, model: widget.model, price: widget.price, img: widget.img, quantity: 1));
                   print(vm.shoppingCardList);
                   print("work");
                 },

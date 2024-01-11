@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_11/features/presentation/routes/app_router.gr.dart';
 import 'package:flutter_application_11/features/presentation/theme/app_colors.dart';
 import 'package:flutter_application_11/features/presentation/theme/app_fonts.dart';
 import 'package:flutter_application_11/features/presentation/widgets/cards/bag_card.dart';
@@ -24,6 +23,11 @@ class _BagScreenState extends State<BagScreen> {
   Widget build(BuildContext context) {
     final vm = Provider.of<ShoppingCardProvider>(context);
     final theme = Provider.of<ChangeThemeProvider>(context);
+    double updateSum(){
+      setState(() {
+      });
+      return vm.sum;
+    }
     return Scaffold(
       backgroundColor: theme.changeTheme(),
       body: Column(
@@ -73,9 +77,11 @@ class _BagScreenState extends State<BagScreen> {
                   return  Padding(
                     padding: const EdgeInsets.only(left: 32),
                     child: BagCards(
+                            name: vm.shoppingCardList[index].name,
                             model: vm.shoppingCardList[index].model,
                             price: vm.shoppingCardList[index].price,
                             img: vm.shoppingCardList[index].img,
+                            quantity: vm.shoppingCardList[index].quantity,
                           ),
                   );
                 },
@@ -104,7 +110,7 @@ class _BagScreenState extends State<BagScreen> {
                         style: AppFonts.s16w700,
                       ),
                       Text(
-                        "\$${vm.sumOfproducts().toString()}",
+                        "\$${vm.sum}",
                         style: AppFonts.s16w700,
                       )
                     ],
@@ -115,7 +121,7 @@ class _BagScreenState extends State<BagScreen> {
                   Center(
                       child: ElevatedButton(
                     onPressed: () {
-                      print(vm.sumOfproducts());
+                      
                     },
                     style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.pinkColor,
