@@ -1,18 +1,18 @@
 import 'package:flutter_application_12/presentation/bloc/calc_event.dart';
 import 'package:flutter_application_12/presentation/bloc/calc_state.dart';
+import 'package:flutter_application_12/repository/calc_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CalcBloc extends Bloc<CalcEvent, CalcState> {
-  CalcBloc() : super(CalcInitial()) {
+  final CalcRepository repository;
+  CalcBloc({required this.repository}) : super(CalcInitial()) {
     on<AdditionEvent>(
       (event, emit) async {
         emit(CalcLoading());
-        print("Loading");
         await Future.delayed(const Duration(seconds: 1));
         try {
-          double result = double.parse(event.a) + double.parse(event.b);
+          double result = repository.sum(a: event.a, b: event.b);
           emit(CalcSuccess(result: result));
-          print("Success");
         } catch (e) {
           CalcError(errorText: e.toString());
           print(e.toString());
@@ -24,10 +24,11 @@ class CalcBloc extends Bloc<CalcEvent, CalcState> {
       emit(CalcLoading());
       await Future.delayed(const Duration(seconds: 1));
       try {
-        double result = double.parse(event.a) - double.parse(event.b); 
+        double result = repository.differences(a: event.a, b: event.b);
         emit(CalcSuccess(result: result));
       } catch (e) {
         emit(CalcError(errorText: e.toString()));
+        print(e.toString());
       }
     });
   }

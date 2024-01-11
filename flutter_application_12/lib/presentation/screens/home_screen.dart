@@ -34,9 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       style:
                           const TextStyle(fontSize: 50, color: Colors.white));
                 } else if (state is CalcError) {
-                  return AlertDialog.adaptive(
-                    content: Text(state.errorText),
-                  );
+                  return Text(state.errorText, style: const TextStyle(fontSize: 30, color: Colors.white),);
                 }
                 return const SizedBox();
               }),
