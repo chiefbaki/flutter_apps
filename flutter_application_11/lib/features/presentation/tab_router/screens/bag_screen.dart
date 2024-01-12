@@ -23,11 +23,6 @@ class _BagScreenState extends State<BagScreen> {
   Widget build(BuildContext context) {
     final vm = Provider.of<ShoppingCardProvider>(context);
     final theme = Provider.of<ChangeThemeProvider>(context);
-    double updateSum(){
-      setState(() {
-      });
-      return vm.sum;
-    }
     return Scaffold(
       backgroundColor: theme.changeTheme(),
       body: Column(
@@ -110,7 +105,7 @@ class _BagScreenState extends State<BagScreen> {
                         style: AppFonts.s16w700,
                       ),
                       Text(
-                        "\$${vm.sum}",
+                        "\$${vm.getTotalSumm()}",
                         style: AppFonts.s16w700,
                       )
                     ],

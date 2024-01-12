@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_11/data/model/product_model.dart';
 import 'package:flutter_application_11/features/presentation/theme/app_colors.dart';
 import 'package:flutter_application_11/features/presentation/theme/app_fonts.dart';
-import 'package:flutter_application_11/features/presentation/widgets/buttons/circular_btn.dart';
 import 'package:flutter_application_11/features/providers/shoppingcard_provider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
@@ -94,17 +93,7 @@ class _BagCardsState extends State<BagCards> {
                   ),
                   InkWell(
                     onTap: () {
-                      print(model.quantity);
-                      print('Button tapped');
-                      setState(() {
-                        Provider.of<ShoppingCardProvider>(context,
-                                listen: false)
-                            .increaseProduct(model);
-
-                        Provider.of<ShoppingCardProvider>(context,
-                                listen: false)
-                            .sumOfproducts();
-                      });
+                     vm.addCard(el)
                     },
                     child: Container(
                       width: 28.0,

@@ -5,17 +5,17 @@ class ShoppingCardProvider extends ChangeNotifier {
   List<ProductModel> shoppingCardList = [];
   double sum = 0;
 
-  void sumOfproducts(){
+  double sumOfproducts(){
     
     for (int i = 0; i < shoppingCardList.length; i++) {
-      sum += double.parse(shoppingCardList[i].price) * shoppingCardList[i].quantity;
+      sum += double.parse(shoppingCardList[i].price);
     }
-    notifyListeners();
+    return sum;
   }
 
-  int increaseProduct(ProductModel product){
-    return product.quantity++;
-    
+  void increaseProduct(ProductModel product){
+    product.quantity++;
+    notifyListeners();
   }
 
   void addCard(ProductModel el){
@@ -26,6 +26,16 @@ class ShoppingCardProvider extends ChangeNotifier {
   void clearList() {
     shoppingCardList.clear();
     notifyListeners();
+  }
+  double getTotalSumm(){
+    double summ = 0;
+
+    for(var i in shoppingCardList){
+
+      summ+= double.parse(i.price);
+    }
+
+    return summ;
   }
 }
 
