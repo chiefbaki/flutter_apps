@@ -106,7 +106,7 @@ class _BagScreenState extends State<BagScreen> {
                         style: AppFonts.s16w700,
                       ),
                       Text(
-                        "\$${vm.sum}",
+                        "\$${vm.summ}",
                         style: AppFonts.s16w700,
                       )
                     ],
