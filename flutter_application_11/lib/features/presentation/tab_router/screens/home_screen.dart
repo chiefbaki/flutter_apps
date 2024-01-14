@@ -155,6 +155,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 return Cards(
                                   currentIndexList:
                                       ProductModelList().models.length,
+                                      id: ProductModelList().models[index].id,
                                   name: ProductModelList().models[index].name,
                                   model: ProductModelList().models[index].model,
                                   price: ProductModelList().models[index].price,

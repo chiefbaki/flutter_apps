@@ -12,6 +12,7 @@ class Cards extends StatefulWidget {
   final String img;
   final Color color;
   final int currentIndexList;
+  final int id;
   const Cards(
       {super.key,
       required this.name,
@@ -19,7 +20,8 @@ class Cards extends StatefulWidget {
       required this.price,
       required this.img,
       required this.color,
-      required this.currentIndexList});
+      required this.currentIndexList,
+      required this.id});
 
   @override
   State<Cards> createState() => _CardsState();
@@ -102,7 +104,7 @@ class _CardsState extends State<Cards> {
                   // vm.addCard(
                   //   [widget.name, widget.model, widget.price, widget.img]
                   // );
-                  vm.addCard(ProductModel(name: widget.name, model: widget.model, price: widget.price, img: widget.img, quantity: 1));
+                  vm.addCard(ProductModel(name: widget.name, model: widget.model, price: widget.price, img: widget.img, quantity: 1, id: widget.id));
                   print(vm.shoppingCardList);
                   print("work");
                 },

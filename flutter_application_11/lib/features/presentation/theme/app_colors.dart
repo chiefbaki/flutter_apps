@@ -5,7 +5,7 @@ abstract class AppColors{
   static Color bagCardColor = const Color(0xffDCE3EA);
   static Color pinkColor = const Color(0xffF4446A);
   static Color circleColor = const Color(0xffEBEBEB);
-  static Color addRemoveBtnColor = const Color(0xff838383).withOpacity(0.8);
+  static Color addRemoveBtnColor = const Color(0xffE6E6E6);
   static Color darkThemeColor = const Color(0xff5A3F3F);
   static Color bgColor = const Color(0xffE7EDF0);
   static Color lightThemeColor = Colors.white;

@@ -3,23 +3,34 @@ import 'package:flutter_application_11/data/model/product_model.dart';
 
 class ShoppingCardProvider extends ChangeNotifier {
   List<ProductModel> shoppingCardList = [];
+  // double summ = 0;
+  // double get totalSum => summ;
   double sum = 0;
 
-  double sumOfproducts(){
-    
+  double sumOfproducts() {
     for (int i = 0; i < shoppingCardList.length; i++) {
       sum += double.parse(shoppingCardList[i].price);
     }
     return sum;
   }
 
-  void increaseProduct(ProductModel product){
-    product.quantity++;
+  void addCard(ProductModel el) {
+    bool productExist = shoppingCardList.any((element) => element.id == el.id);
+    if (productExist) {
+      shoppingCardList.firstWhere((element) => element.id == el.id).quantity++;
+    } else {
+      shoppingCardList.add(el);
+    }
     notifyListeners();
   }
 
-  void addCard(ProductModel el){
-    shoppingCardList.add(el);
+  void removeCard(ProductModel el) {
+  for (var el in shoppingCardList) {
+      if (sum != 0 && el.quantity != 0) {
+        shoppingCardList.firstWhere((element) => element.id == el.id).quantity--;
+        sum -= double.parse(el.price);
+      }
+    }
     notifyListeners();
   }
 
@@ -27,17 +38,11 @@ class ShoppingCardProvider extends ChangeNotifier {
     shoppingCardList.clear();
     notifyListeners();
   }
-  double getTotalSumm(){
-    double summ = 0;
 
-    for(var i in shoppingCardList){
-
-      summ+= double.parse(i.price);
-    }
-
-    return summ;
-  }
+  // void getTotalSumm() {
+  //   for (var i in shoppingCardList) {
+  //     summ += double.parse(i.price) * i.quantity;
+  //   }
+  //   notifyListeners();
+  // }
 }
-
-
-

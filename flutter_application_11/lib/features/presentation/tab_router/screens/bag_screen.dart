@@ -77,6 +77,7 @@ class _BagScreenState extends State<BagScreen> {
                             price: vm.shoppingCardList[index].price,
                             img: vm.shoppingCardList[index].img,
                             quantity: vm.shoppingCardList[index].quantity,
+                            id: vm.shoppingCardList[index].id,
                           ),
                   );
                 },
@@ -105,7 +106,7 @@ class _BagScreenState extends State<BagScreen> {
                         style: AppFonts.s16w700,
                       ),
                       Text(
-                        "\$${vm.getTotalSumm()}",
+                        "\$${vm.sum}",
                         style: AppFonts.s16w700,
                       )
                     ],
