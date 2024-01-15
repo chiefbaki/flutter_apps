@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_11/data/model/product_model.dart';
+import 'package:flutter_application_11/data/model/product_model/product_model.dart';
 
 class ShoppingCardProvider extends ChangeNotifier {
   List<ProductModel> shoppingCardList = [];
-  // double get totalSum => sum;
   double summ = 0;
 
   double sumOfproducts() {
@@ -22,6 +21,7 @@ class ShoppingCardProvider extends ChangeNotifier {
       shoppingCardList.add(el);
     }
     summ = sumOfproducts();
+    print(shoppingCardList);
     notifyListeners();
   }
 
@@ -37,6 +37,7 @@ class ShoppingCardProvider extends ChangeNotifier {
         summ -= double.parse(el.price); 
       }
     }
+    summ = sumOfproducts();
     print(shoppingCardList);
     notifyListeners();
   }
@@ -46,10 +47,4 @@ class ShoppingCardProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  // void getTotalSumm() {
-  //   for (var i in shoppingCardList) {
-  //     summ += double.parse(i.price) * i.quantity;
-  //   }
-  //   notifyListeners();
-  // }
 }

@@ -4,6 +4,7 @@ import 'package:flutter_application_11/features/presentation/theme/app_colors.da
 import 'package:flutter_application_11/features/presentation/theme/app_fonts.dart';
 import 'package:flutter_application_11/features/presentation/widgets/cards/bag_card.dart';
 import 'package:flutter_application_11/features/providers/changetheme_provider.dart';
+import 'package:flutter_application_11/features/providers/email_provider.dart';
 import 'package:flutter_application_11/features/providers/shoppingcard_provider.dart';
 import 'package:flutter_application_11/resources/resources.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -23,6 +24,7 @@ class _BagScreenState extends State<BagScreen> {
   Widget build(BuildContext context) {
     final vm = Provider.of<ShoppingCardProvider>(context);
     final theme = Provider.of<ChangeThemeProvider>(context);
+    final email = Provider.of<EmailProvider>(context);
     return Scaffold(
       backgroundColor: theme.changeTheme(),
       body: Column(
@@ -117,7 +119,8 @@ class _BagScreenState extends State<BagScreen> {
                   Center(
                       child: ElevatedButton(
                     onPressed: () {
-                      
+                      email.sendEmail(vm.shoppingCardList, vm.summ);
+                      print("email is sent");
                     },
                     style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.pinkColor,

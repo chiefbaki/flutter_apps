@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_11/data/model/product_model.dart';
+import 'package:flutter_application_11/data/model/product_model/product_model.dart';
 import 'package:flutter_application_11/features/presentation/theme/app_colors.dart';
 import 'package:flutter_application_11/features/presentation/theme/app_fonts.dart';
 import 'package:flutter_application_11/features/presentation/widgets/cards/card.dart';
