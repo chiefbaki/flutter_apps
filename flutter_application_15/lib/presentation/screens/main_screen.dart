@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_15/cubit/search_cubit/search_cubit.dart';
 import 'package:flutter_application_15/cubit/search_cubit/search_state.dart';
-import 'package:flutter_application_15/resources/resources.dart';
+import 'package:flutter_application_15/presentation/screens/favourite_screen.dart';
+import 'package:flutter_application_15/presentation/widgets/customtile_widget.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/svg.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
@@ -14,7 +14,22 @@ class MainScreen extends StatelessWidget {
     final TextEditingController year = TextEditingController();
 
     return Scaffold(
-      backgroundColor: Colors.grey,
+      
+      appBar: AppBar(
+        actions: [
+          TextButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const FavouriteScreen()));
+              },
+              child: const Text(
+                "Favourites",
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+              ))
+        ],
+      ),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 150),
@@ -60,10 +75,17 @@ class MainScreen extends StatelessWidget {
                     return const CircularProgressIndicator.adaptive();
                   } else if (state is SearchSuccess) {
                     return CustomListTile(
+                        genre: state.result.genre ?? "",
+                        awards: state.result.awards ?? "",
+                        plot: state.result.plot ?? "",
+                        language: state.result.language ?? "",
+                        runtime: state.result.runtime ?? "",
                         img: state.result.poster ?? "error",
                         title: state.result.title ?? "",
                         subTitle: state.result.year ?? "",
-                        rated: state.result.rated ?? "");
+                        year: state.result.year ?? "",
+                        boxOffice: state.result.boxOffice ?? "",
+                        country: state.result.country ?? "");
                   } else if (state is SearchError) {
                     return Text(
                       state.error,
@@ -74,54 +96,8 @@ class MainScreen extends StatelessWidget {
                   }
                 },
               ),
-              const SizedBox(
-                height: 100,
-              ),
-              Image.asset("assets/imgs/fashion_1.png")
             ],
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class CustomListTile extends StatelessWidget {
-  final String img;
-  final String title;
-  final String subTitle;
-  final String rated;
-
-  const CustomListTile(
-      {super.key,
-      required this.img,
-      required this.title,
-      required this.subTitle,
-      required this.rated});
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        print("work");
-      },
-      child: ListTile(
-        leading: Image.network(
-          img,
-          width: 40,
-          height: 40,
-        ),
-        title: Text(
-          title,
-          style: TextStyle(fontSize: 10),
-        ),
-        subtitle: Text(
-          subTitle,
-          style: TextStyle(fontSize: 10),
-        ),
-        trailing: Text(
-          rated,
-          style: TextStyle(fontSize: 20),
         ),
       ),
     );
