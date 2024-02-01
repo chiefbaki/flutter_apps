@@ -10,6 +10,7 @@ class DioSettings {
 
   Dio dio = Dio(
     BaseOptions(
+      baseUrl: "http://www.omdbapi.com/?",
       contentType: "application/json",
       headers: {
         "Accept": "application/json",
