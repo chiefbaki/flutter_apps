@@ -75,8 +75,8 @@ class Ratings {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['Source'] = this.source;
-    data['Value'] = this.value;
+    data['Source'] = source;
+    data['Value'] = value;
     return data;
   }
 }

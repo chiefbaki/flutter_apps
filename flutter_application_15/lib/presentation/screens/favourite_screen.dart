@@ -23,7 +23,9 @@ class FavouriteScreen extends StatelessWidget {
                       Column(
                         children: [
                           Text(
+                            
                             vm.favourites[index].title ?? "",
+                            softWrap: true,
                             style: const TextStyle(
                                 fontSize: 15, fontWeight: FontWeight.w500, color: Colors.white),
                           ),

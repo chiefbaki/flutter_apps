@@ -14,7 +14,6 @@ class MainScreen extends StatelessWidget {
     final TextEditingController year = TextEditingController();
 
     return Scaffold(
-      
       appBar: AppBar(
         actions: [
           TextButton(
@@ -32,7 +31,7 @@ class MainScreen extends StatelessWidget {
       ),
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 150),
+          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 150),
           child: Column(
             children: [
               TextField(
