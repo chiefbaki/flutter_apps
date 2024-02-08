@@ -1,133 +1,96 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_16/data/model/quiz_model.dart';
-import 'package:flutter_application_16/presentation/bloc/quiz_bloc.dart';
-import 'package:flutter_application_16/presentation/bloc/quiz_event.dart';
-import 'package:flutter_application_16/presentation/bloc/quiz_state.dart';
+import 'package:flutter_application_16/presentation/bloc/email_bloc.dart';
+import 'package:flutter_application_16/presentation/bloc/email_event.dart';
+import 'package:flutter_application_16/presentation/bloc/email_state.dart';
+import 'package:flutter_application_16/presentation/widgets/custom_btn.dart';
+import 'package:flutter_application_16/presentation/widgets/custom_text_field.dart';
+import 'package:flutter_application_16/presentation/widgets/email_text_field.dart';
+import 'package:flutter_application_16/presentation/widgets/message_textfield.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-bool isSelected = false;
-bool isButtonVisible = true;
-final PageController controller = PageController();
-
-class _HomeScreenState extends State<HomeScreen> {
-  @override
   Widget build(BuildContext context) {
-    BlocProvider.of<QuizBloc>(context).add(RandomQuizEvent());
+    final TextEditingController toName = TextEditingController();
+    final TextEditingController fromName = TextEditingController();
+    final TextEditingController message = TextEditingController();
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 191, 191, 191),
-      body: BlocBuilder<QuizBloc, QuizState>(builder: ((context, state) {
-        if (state is QuizLoading) {
-          return const Center(
-            child: CircularProgressIndicator.adaptive(),
-          );
-        } else if (state is QuizSuccess) {
-          return PageView.builder(
-              controller: controller,
-              itemCount: QuizModel().results?.length ?? 10,
-              itemBuilder: (context, index) {
-                return Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Visibility(
-                        visible: isSelected,
-                        child: Text(
-                          state.question.results?[index].question ?? "",
-                          style: const TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.w600),
-                        )),
-                    Visibility(
-                      visible: isSelected,
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 20),
-                        child: Row(
-                          children: [
-                            SizedBox(
-                              height: 250,
-                              width: 200,
-                              child: ListView.builder(itemCount: state.answers.length, itemBuilder: (context, index){
-                                return Column(
-                                  children: [
-                                    ElevatedButton(
-                                        onPressed: () {},
-                                        child: Text(
-                                          state.answers[index],
-                                          style: const TextStyle(
-                                              fontSize: 20,
-                                              fontWeight: FontWeight.w600),
-                                        )),
-                                  ],
-                                );
-                              })
-                            ),
-                            Visibility(
-                              visible: isSelected,
-                              child: const Padding(
-                                padding: EdgeInsets.only(left: 100),
-                                child: Text(
-                                  "1980",
-                                  style: TextStyle(
-                                      fontSize: 50,
-                                      fontWeight: FontWeight.w600),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 60, horizontal: 11.5),
+          child: Column(
+            children: [
+              const Text(
+                "Contact",
+                style: TextStyle(fontSize: 32, fontWeight: FontWeight.w600),
+              ),
+              const SizedBox(
+                height: 5,
+              ),
+              const SizedBox(
+                  width: 290,
+                  child: Text(
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quam duis vitae curabitur amet, fermentum lorem. ",
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
                     ),
-                    Visibility(
-                      visible: isButtonVisible,
-                      child: ElevatedButton(
-                          onPressed: () {
-                            isButtonVisible = !isButtonVisible;
-                            isSelected = !isSelected;
-                            setState(() {});
-                            print("работает");
-                          },
-                          style: ElevatedButton.styleFrom(
-                              backgroundColor:
-                                  const Color.fromARGB(255, 189, 29, 18),
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20))),
-                          child: const Padding(
-                            padding: EdgeInsets.all(10.0),
-                            child: Text(
-                              "Начать викторину",
-                              style: TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.w700),
-                            ),
-                          )),
-                    )
-                  ],
-                );
-              });
-        } else if (state is QuizError) {
-          return Center(child: Text(state.error));
-        }
-        return const SizedBox();
-      })),
-      floatingActionButton: Visibility(
-        visible: isSelected,
-        child: ElevatedButton(
-            onPressed: () {
-              isSelected = !isSelected;
-              isButtonVisible = !isButtonVisible;
-              setState(() {});
-            },
-            style: ElevatedButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20))),
-            child: const Text(
-              "Закончить",
-              style: TextStyle(fontSize: 20),
-            )),
+                    textAlign: TextAlign.center,
+                  )),
+              const SizedBox(
+                height: 35,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  CustomTextField(
+                      hintText: "Name",
+                      labelText: "First name",
+                      controller: fromName),
+                  CustomTextField(
+                      hintText: "Last name",
+                      labelText: "Last name",
+                      controller: fromName),
+                ],
+              ),
+              const SizedBox(
+                height: 25,
+              ),
+              EmailTextField(
+                  labelText: "Email",
+                  hintText: "your@gmail.com",
+                  controller: TextEditingController(),
+                  icon: Icons.message),
+                  const SizedBox(
+                    height: 35,
+                  ),
+                MessageTextField(
+                hintText: "Your message",
+                labelText: "Message",
+                controller: message,
+                
+              ),
+              const SizedBox(
+                height: 35,
+              ),
+              BlocListener<EmailBloc, EmailState>(
+                listener: (context, state) {
+                  print("work");
+                  if (state is EmailStateSuccess) {
+                    print("success");
+                  }else if(state is EmailStateError){
+                    print(state.error);
+                  }
+                },
+                child: CustomBtn(onPressed: () {
+                  BlocProvider.of<EmailBloc>(context).add(EmailSendMessageEvent(toName: toName.text, fromName: fromName.text, message: message.text));
+                }),
+              )
+            ],
+          ),
+        ),
       ),
     );
   }
