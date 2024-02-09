@@ -8,7 +8,8 @@ class EmailBloc extends Bloc<EmailEvent, EmailState> {
     on<EmailSendMessageEvent>((event, emit) {
       emit(EmailStateLoading());
       try {
-        repository.sendMessage(name: event.fromName, surname: event.toName, message: event.message);
+        repository.sendMessage(name: event.fromName, message: event.message);
+        emit(EmailStateSuccess());
       } catch (e) {
         emit(EmailStateError(error: e.toString())); 
       }

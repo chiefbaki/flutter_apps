@@ -13,7 +13,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController toName = TextEditingController();
+    final TextEditingController lastName = TextEditingController();
     final TextEditingController fromName = TextEditingController();
     final TextEditingController message = TextEditingController();
     return Scaffold(
@@ -52,7 +52,7 @@ class HomeScreen extends StatelessWidget {
                   CustomTextField(
                       hintText: "Last name",
                       labelText: "Last name",
-                      controller: fromName),
+                      controller: lastName),
                 ],
               ),
               const SizedBox(
@@ -63,14 +63,29 @@ class HomeScreen extends StatelessWidget {
                   hintText: "your@gmail.com",
                   controller: TextEditingController(),
                   icon: Icons.message),
-                  const SizedBox(
-                    height: 35,
+              const SizedBox(
+                height: 25,
+              ),
+              TextField(
+                decoration: InputDecoration(
+                  suffixIcon: const Icon(Icons.phone),
+                  hintText: "+996 999 99 99 99",
+                  labelText: "Phone*",
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15)
                   ),
-                MessageTextField(
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15)
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 35,
+              ),
+              MessageTextField(
                 hintText: "Your message",
                 labelText: "Message",
                 controller: message,
-                
               ),
               const SizedBox(
                 height: 35,
@@ -80,12 +95,14 @@ class HomeScreen extends StatelessWidget {
                   print("work");
                   if (state is EmailStateSuccess) {
                     print("success");
-                  }else if(state is EmailStateError){
+                  } else if (state is EmailStateError) {
                     print(state.error);
                   }
                 },
                 child: CustomBtn(onPressed: () {
-                  BlocProvider.of<EmailBloc>(context).add(EmailSendMessageEvent(toName: toName.text, fromName: fromName.text, message: message.text));
+                  BlocProvider.of<EmailBloc>(context).add(EmailSendMessageEvent(
+                      fromName: "${fromName.text} ${lastName.text}",
+                      message: message.text));
                 }),
               )
             ],

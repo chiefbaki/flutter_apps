@@ -10,6 +10,7 @@ class DioSettings {
 
   Dio dio = Dio(
     BaseOptions(
+      baseUrl: "https://api.emailjs.com/api/v1.0/email/send/",
       contentType: "application/json",
       headers: {
         "Accept": "application/json",

@@ -8,7 +8,6 @@ class EmailRepository {
 
   Future<void> sendMessage(
       {required String name,
-      required String surname,
       required String message}) async {
     final Response response = await dio.post("",
         data: EmailModel(
@@ -17,8 +16,8 @@ class EmailRepository {
                 templateId: ApiConsts.templateId,
                 userId: ApiConsts.userId,
                 templateParams: TemplateParams(
-                    fromName: "islam",
-                    toName: "$name $surname",
+                    fromName: name,
+                    toName: "Islam Kurbanov",
                     message: message))
             .toJson());
     print(response.data);
