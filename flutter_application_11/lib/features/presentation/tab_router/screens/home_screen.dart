@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_11/data/model/product_model/product_model.dart';
-import 'package:flutter_application_11/features/presentation/theme/app_colors.dart';
-import 'package:flutter_application_11/features/presentation/theme/app_fonts.dart';
+import 'package:flutter_application_11/core/theme/app_colors.dart';
+import 'package:flutter_application_11/core/theme/app_fonts.dart';
 import 'package:flutter_application_11/features/presentation/widgets/cards/card.dart';
 import 'package:flutter_application_11/features/presentation/widgets/cards/more_card.dart';
 import 'package:flutter_application_11/features/presentation/widgets/buttons/rotated_btn.dart';
@@ -45,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
         SizedBox(
           child: Center(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
+              padding: const EdgeInsets.symmetric(horizontal: 25),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -167,36 +167,40 @@ class _HomeScreenState extends State<HomeScreen> {
                       )
                     ],
                   ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "More",
-                        style: AppFonts.s20w700.copyWith(color: Colors.black),
-                      ),
-                      SizedBox(
-                        height: 16.h,
-                      ),
-                      Row(
-                        children: [
-                          MoreCard(
-                            name:
-                                "${ProductModelList().modelsMore[0].name + " " + ProductModelList().modelsMore[0].model}",
-                            img: ProductModelList().modelsMore[0].img,
-                            price: ProductModelList().models[0].price,
-                          ),
-                          SizedBox(
-                            width: 15.w,
-                          ),
-                          MoreCard(
-                            name:
-                                "${ProductModelList().modelsMore[1].name + " " + ProductModelList().modelsMore[1].model}",
-                            img: ProductModelList().modelsMore[1].img,
-                            price: ProductModelList().modelsMore[1].price,
-                          ),
-                        ],
-                      )
-                    ],
+                  SingleChildScrollView(
+                    physics: const AlwaysScrollableScrollPhysics(),
+                    
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "More",
+                          style: AppFonts.s20w700.copyWith(color: Colors.black),
+                        ),
+                        SizedBox(
+                          height: 16.h,
+                        ),
+                        Row(
+                          children: [
+                            MoreCard(
+                              name:
+                                  "${ProductModelList().modelsMore[0].name + " " + ProductModelList().modelsMore[0].model}",
+                              img: ProductModelList().modelsMore[0].img,
+                              price: ProductModelList().models[0].price,
+                            ),
+                            SizedBox(
+                              width: 15.w,
+                            ),
+                            MoreCard(
+                              name:
+                                  "${ProductModelList().modelsMore[1].name + " " + ProductModelList().modelsMore[1].model}",
+                              img: ProductModelList().modelsMore[1].img,
+                              price: ProductModelList().modelsMore[1].price,
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
                   )
                 ],
               ),

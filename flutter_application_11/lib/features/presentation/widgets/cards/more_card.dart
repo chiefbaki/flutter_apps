@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_11/features/presentation/theme/app_colors.dart';
-import 'package:flutter_application_11/features/presentation/theme/app_fonts.dart';
+import 'package:flutter_application_11/core/theme/app_colors.dart';
+import 'package:flutter_application_11/core/theme/app_fonts.dart';
 import 'package:flutter_application_11/features/presentation/widgets/buttons/favorite_btn.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -19,7 +19,7 @@ class _MoreCardState extends State<MoreCard> {
   Widget build(BuildContext context) {
     return Container(
       width: 172.w,
-      height: 192.h,
+      height: 152.h,
       decoration: BoxDecoration(
           color: Colors.white,
            borderRadius: BorderRadius.circular(9)),
@@ -57,7 +57,7 @@ class _MoreCardState extends State<MoreCard> {
                 ),
               ),
               SizedBox(
-                height: 62.h,
+                height: 42.h,
               ),
               Text(
                 widget.name,

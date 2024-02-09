@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_11/data/model/product_model/product_model.dart';
-import 'package:flutter_application_11/features/presentation/theme/app_fonts.dart';
+import 'package:flutter_application_11/core/theme/app_fonts.dart';
 import 'package:flutter_application_11/features/providers/shoppingcard_provider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';

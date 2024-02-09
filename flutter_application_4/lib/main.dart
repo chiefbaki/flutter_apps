@@ -8,6 +8,7 @@ void main() => runApp(const MyApp());
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
+
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       builder: (context, child) => MaterialApp(
         theme: ThemeData(
             scaffoldBackgroundColor: AppColors.bgColor,
-            appBarTheme: AppBarTheme(
+            appBarTheme: const AppBarTheme(
               color: AppColors.bgColor,
             )),
         debugShowCheckedModeBanner: false,

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_14/presentation/auth_cubit/auth_cubit.dart';
 import 'package:flutter_application_14/presentation/auth_cubit/auth_state.dart';
 import 'package:flutter_application_14/presentation/screens/home_screen.dart';
+import 'package:flutter_application_14/presentation/screens/login.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -23,15 +23,19 @@ class _MainScreenState extends State<MainScreen> {
     passController.dispose();
   }
 
-  bool isVisible = false;
+  bool isVisible = true;
+  
   @override
   Widget build(BuildContext context) {
+    
     return BlocListener<AuthCubit, AuthState>(
       listener: (context, state) {
         debugPrint(state.toString());
         if (state is AuthSuccess) {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const HomeScreen()));
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => const HomeScreen()));
+        }else if(state is AuthError){
+          debugPrint(state.error);
         }
       },
       child: Scaffold(
@@ -99,6 +103,20 @@ class _MainScreenState extends State<MainScreen> {
                         "Register",
                         style: TextStyle(fontSize: 30),
                       ),
+                    )),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextButton(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return const LoginScreen();
+                      }));
+                    },
+                    child: const Text(
+                      "Login",
+                      style: TextStyle(fontSize: 30),
                     ))
               ],
             ),

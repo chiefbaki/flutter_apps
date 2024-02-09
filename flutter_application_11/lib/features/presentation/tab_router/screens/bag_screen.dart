@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_11/features/presentation/theme/app_colors.dart';
-import 'package:flutter_application_11/features/presentation/theme/app_fonts.dart';
+import 'package:flutter_application_11/core/theme/app_colors.dart';
+import 'package:flutter_application_11/core/theme/app_fonts.dart';
 import 'package:flutter_application_11/features/presentation/widgets/cards/bag_card.dart';
 import 'package:flutter_application_11/features/providers/changetheme_provider.dart';
 import 'package:flutter_application_11/features/providers/email_provider.dart';
@@ -120,7 +120,7 @@ class _BagScreenState extends State<BagScreen> {
                       child: ElevatedButton(
                     onPressed: () {
                       email.sendEmail(vm.shoppingCardList, vm.summ);
-                      print("email is sent");
+                      debugPrint("email is sent");
                     },
                     style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.pinkColor,

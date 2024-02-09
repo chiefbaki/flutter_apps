@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_11/features/presentation/routes/app_router.gr.dart';
 import 'package:flutter_application_11/features/presentation/tab_router/screens/bag_screen.dart';
-import 'package:flutter_application_11/features/presentation/theme/app_colors.dart';
+import 'package:flutter_application_11/core/theme/app_colors.dart';
 import 'package:flutter_application_11/resources/resources.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -45,7 +45,6 @@ class _DashboardPageState extends State<DashboardPage> {
                   Navigator.push(context, MaterialPageRoute(builder: (context)=> BagScreen(),),);
                 }else{
                   currentIndex = index;
-                print(currentIndex);
                 setState(() {
                 });
                 tabsRouter.setActiveIndex(index);

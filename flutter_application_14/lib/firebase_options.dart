@@ -50,19 +50,19 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyByLpTh_H2mVm-_kLDQPxF4KiUVhMF1Dbc',
-    appId: '1:76246702486:android:0e01e825e74aa2903da5b7',
-    messagingSenderId: '76246702486',
-    projectId: 'flutter-auth-25afa',
-    storageBucket: 'flutter-auth-25afa.appspot.com',
+    apiKey: 'AIzaSyCeBuyIKC3OGd4Hpqgc4H046Qs7fB2YmLg',
+    appId: '1:1092228220351:android:d441f2357810238d278d0a',
+    messagingSenderId: '1092228220351',
+    projectId: 'flutter-auth-70b29',
+    storageBucket: 'flutter-auth-70b29.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyA3useFXQgErY7iruZAz9gxgZfcFPr_8Sc',
-    appId: '1:76246702486:ios:3fd268d1d95037cd3da5b7',
-    messagingSenderId: '76246702486',
-    projectId: 'flutter-auth-25afa',
-    storageBucket: 'flutter-auth-25afa.appspot.com',
+    apiKey: 'AIzaSyClS3CAKFP2fUsLq6L_vzXemfIe3EV0moU',
+    appId: '1:1092228220351:ios:8a4abd300faa8dae278d0a',
+    messagingSenderId: '1092228220351',
+    projectId: 'flutter-auth-70b29',
+    storageBucket: 'flutter-auth-70b29.appspot.com',
     iosBundleId: 'com.example.flutterApplication14',
   );
 }

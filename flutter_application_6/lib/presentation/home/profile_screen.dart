@@ -92,7 +92,7 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             Flexible(
               child: DefaultTabController(
-                  initialIndex: 1,
+                  initialIndex: 0,
                   length: 3,
                   child: Column(
                     children: [

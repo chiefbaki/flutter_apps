@@ -12,4 +12,7 @@ abstract class AppColors {
   static const Color docLabelColor = Color(0xff757575);
   static const Color searchFieldColors = Color(0xff8E8E93);
   static const Color listTileBackground = Color(0xffEFEFF3);
+  static const Color starColor = Color(0xffAFAFAF);
+  static const Color indicatorColor = Color(0xff4C84CE);
+  
 }

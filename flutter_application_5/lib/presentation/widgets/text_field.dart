@@ -38,7 +38,7 @@ class _TextFieldRegState extends State<TextFieldReg> {
                 : widget.passwordVisible = false,
             obscuringCharacter: "●",
             decoration: InputDecoration(
-                contentPadding: EdgeInsets.only(top: 20),
+                contentPadding: const EdgeInsets.only(top: 20),
                 //helperText: widget.underText,
                 //helperStyle: AppFonts.s11w400.copyWith(color: Colors.black),
                 suffixIcon: IconButton(
@@ -62,7 +62,7 @@ class _TextFieldRegState extends State<TextFieldReg> {
 class TextFieldLogin extends StatefulWidget {
   final String helpText;
   final String underText;
-  TextFieldLogin({super.key, required this.helpText, this.underText = ''});
+  const TextFieldLogin({super.key, required this.helpText, this.underText = ''});
 
   @override
   State<TextFieldLogin> createState() => _TextFieldLoginState();

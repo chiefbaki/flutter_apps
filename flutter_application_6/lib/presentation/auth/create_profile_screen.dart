@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_6/core/app_consts.dart';
 import 'package:flutter_application_6/presentation/home/home_screen.dart';
-import 'package:flutter_application_6/presentation/home/search_screen.dart';
 import 'package:flutter_application_6/presentation/theme/app_colors.dart';
 import 'package:flutter_application_6/presentation/theme/app_fonts.dart';
 import 'package:flutter_application_6/presentation/widgets/button/leading_btn.dart';

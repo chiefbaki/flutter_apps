@@ -43,6 +43,7 @@ dependencies:
   flutter_svg: ^2.0.9
   image_picker: ^1.0.4
   file_picker: ^6.1.1
+  star_rating: ^0.11.0
 
 dev_dependencies:
   flutter_test:

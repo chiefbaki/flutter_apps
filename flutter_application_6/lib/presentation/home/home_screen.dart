@@ -71,23 +71,23 @@ class _HomePageState extends State<HomePage> {
   List<PersistentBottomNavBarItem> _navBarsItems() {
     return [
       PersistentBottomNavBarItem(
-          icon: Icon(Icons.add),//SvgPicture.asset(AppImg.userPlus,),
+          icon: SizedBox(height: 50, width: 50, child: SvgPicture.asset(AppImg.userPlus,)),
           title: ("Доктора"),
           textStyle: AppFonts.s10w500),
       PersistentBottomNavBarItem(
-          icon: Icon(Icons.article), //SvgPicture.asset(AppImg.spreadsheet),
+          icon: SvgPicture.asset(AppImg.spreadsheet),
           title: ("Статьи"),
           textStyle: AppFonts.s10w500),
       PersistentBottomNavBarItem(
-          icon: Icon(Icons.car_crash), //SvgPicture.asset(AppImg.ambulance,),
+          icon: SvgPicture.asset(AppImg.ambulance,),
           title: ("Вызов"),
           textStyle: AppFonts.s10w500),
       PersistentBottomNavBarItem(
-          icon: Icon(Icons.favorite),//SvgPicture.asset(AppImg.favorite),
+          icon: SvgPicture.asset(AppImg.favorite),
           title: ("Мои доктора"),
           textStyle: AppFonts.s10w500),
       PersistentBottomNavBarItem(
-          icon: Icon(Icons.update_disabled_rounded), //SvgPicture.asset(AppImg.user),
+          icon: SvgPicture.asset(AppImg.user),
           title: ("Профиль"),
           textStyle: AppFonts.s10w500),
     ];

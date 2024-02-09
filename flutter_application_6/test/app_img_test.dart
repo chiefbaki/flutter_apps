@@ -7,10 +7,10 @@ void main() {
   test('app_img assets test', () {
     expect(File(AppImg.group).existsSync(), isTrue);
     expect(File(AppImg.maskGroup).existsSync(), isTrue);
-    expect(File(AppImg.maskGroup4).existsSync(), isTrue);
     expect(File(AppImg.maskGroup1).existsSync(), isTrue);
     expect(File(AppImg.maskGroup).existsSync(), isTrue);
     expect(File(AppImg.maskGroup3).existsSync(), isTrue);
+    expect(File(AppImg.maskGroup4).existsSync(), isTrue);
     expect(File(AppImg.ambulance).existsSync(), isTrue);
     expect(File(AppImg.bell).existsSync(), isTrue);
     expect(File(AppImg.bookAdd).existsSync(), isTrue);

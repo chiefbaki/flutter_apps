@@ -6,7 +6,7 @@ import 'package:flutter_application_14/internal/app.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
-    name: "app",
+    name: "auth-1",
     options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(const MyApp());

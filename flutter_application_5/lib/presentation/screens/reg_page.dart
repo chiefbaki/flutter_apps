@@ -20,7 +20,7 @@ class RegPage extends StatelessWidget {
           child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Padding(
+              const Padding(
                 padding: const EdgeInsets.only(right: 210),
                 child: TextButtonSign(),
               ),

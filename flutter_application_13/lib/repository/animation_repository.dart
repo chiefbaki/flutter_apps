@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 class AnimationRepository{
   Random random = Random();
   List<double> changeSize(){
-    double widthBox = random.nextDouble()*250;
-    double heightBox = random.nextDouble()*250;
+    double widthBox = random.nextDouble()*500;
+    double heightBox = random.nextDouble()*500;
     return [widthBox, heightBox];
   }
 
@@ -16,7 +16,7 @@ class AnimationRepository{
   }
 
   BorderRadius changeRadius(){
-    BorderRadius boxRadius = BorderRadius.circular(random.nextDouble() * 250);
+    BorderRadius boxRadius = BorderRadius.circular(random.nextDouble() * 800);
     return boxRadius;
   }
 }

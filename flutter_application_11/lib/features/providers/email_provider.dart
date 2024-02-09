@@ -6,19 +6,20 @@ import 'package:flutter_application_11/data/model/product_model/product_model.da
 import 'package:flutter_application_11/repository/network_settings/network_settings.dart';
 
 class EmailProvider extends ChangeNotifier {
-  final Dio dio = DioSettings().dio;
+  final Dio _dio = DioSettings().dio;
+  final List<String> _name = [];
+  final List<String> _model = [];
+  final List<String> _price = [];
+  final List<int> _quantity = [];
+  
   Future<void> sendEmail(List<ProductModel> product, double sum) async {
-    List<String> name = [];
-    List<String> model = [];
-    List<String> price = [];
-    List<int> quantity = [];
     for (var el in product) {
-      name.add(el.name);
-      model.add(el.model);
-      price.add(el.price);
-      quantity.add(el.quantity);
+      _name.add(el.name);
+      _model.add(el.model);
+      _price.add(el.price);
+      _quantity.add(el.quantity);
     }
-    await dio.post("https://api.emailjs.com/api/v1.0/email/send?",
+    await _dio.post("https://api.emailjs.com/api/v1.0/email/send?",
         data: EmailModel(
                 templateId: ApiConsts.templateId,
                 serviceId: ApiConsts.serviceId,
@@ -28,7 +29,7 @@ class EmailProvider extends ChangeNotifier {
                     fromName: "Discover Shop team",
                     toName: "Buyer",
                     message:
-                        "Name: ${name.map((e) => e)}\nModel: ${model.map((e) => e)}\nPrice: ${price.map((e) => e)}\nQuantity:${quantity.map((e) => e)}\nSum: $sum"))
+                        "Name: ${_name.map((e) => e)}\nModel: ${_model.map((e) => e)}\nPrice: ${_price.map((e) => e)}\nQuantity:${_quantity.map((e) => e)}\nSum: $sum"))
             .toJson());
   }
 }
