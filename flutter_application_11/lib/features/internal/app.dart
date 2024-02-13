@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(430, 932),
+      designSize: const Size(430, 905),
       minTextAdapt: true,
       builder: (context, child) {
         return MultiProvider(

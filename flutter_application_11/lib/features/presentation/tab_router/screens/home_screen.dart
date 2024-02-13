@@ -167,39 +167,41 @@ class _HomeScreenState extends State<HomeScreen> {
                       )
                     ],
                   ),
-                  SingleChildScrollView(
-                    physics: const AlwaysScrollableScrollPhysics(),
-                    
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "More",
-                          style: AppFonts.s20w700.copyWith(color: Colors.black),
-                        ),
-                        SizedBox(
-                          height: 16.h,
-                        ),
-                        Row(
-                          children: [
-                            MoreCard(
-                              name:
-                                  "${ProductModelList().modelsMore[0].name + " " + ProductModelList().modelsMore[0].model}",
-                              img: ProductModelList().modelsMore[0].img,
-                              price: ProductModelList().models[0].price,
-                            ),
-                            SizedBox(
-                              width: 15.w,
-                            ),
-                            MoreCard(
-                              name:
-                                  "${ProductModelList().modelsMore[1].name + " " + ProductModelList().modelsMore[1].model}",
-                              img: ProductModelList().modelsMore[1].img,
-                              price: ProductModelList().modelsMore[1].price,
-                            ),
-                          ],
-                        )
-                      ],
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.24,
+                    child: SingleChildScrollView(
+                      physics: const AlwaysScrollableScrollPhysics(),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "More",
+                            style: AppFonts.s20w700.copyWith(color: Colors.black),
+                          ),
+                          SizedBox(
+                            height: 16.h,
+                          ),
+                          Row(
+                            children: [
+                              MoreCard(
+                                name:
+                                    "${ProductModelList().modelsMore[0].name + " " + ProductModelList().modelsMore[0].model}",
+                                img: ProductModelList().modelsMore[0].img,
+                                price: ProductModelList().models[0].price,
+                              ),
+                              SizedBox(
+                                width: 15.w,
+                              ),
+                              MoreCard(
+                                name:
+                                    "${ProductModelList().modelsMore[1].name + " " + ProductModelList().modelsMore[1].model}",
+                                img: ProductModelList().modelsMore[1].img,
+                                price: ProductModelList().modelsMore[1].price,
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
                     ),
                   )
                 ],

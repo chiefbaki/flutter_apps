@@ -19,7 +19,7 @@ class _MoreCardState extends State<MoreCard> {
   Widget build(BuildContext context) {
     return Container(
       width: 172.w,
-      height: 152.h,
+      height: 182.h,
       decoration: BoxDecoration(
           color: Colors.white,
            borderRadius: BorderRadius.circular(9)),
