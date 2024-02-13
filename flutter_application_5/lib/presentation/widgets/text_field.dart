@@ -21,7 +21,7 @@ class _TextFieldRegState extends State<TextFieldReg> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
         child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

@@ -6,10 +6,17 @@ import 'package:flutter_application_5/presentation/widgets/text_field.dart';
 import 'package:flutter_application_5/presentation/widgets/transparent_button.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class RegPage extends StatelessWidget {
-  String _googleLogo = "assets/images/google_logo.png";
-  String _facebookLogo = "assets/images/facebook_logo.png";
-  RegPage({super.key});
+class RegPage extends StatefulWidget {
+  const RegPage({super.key});
+
+  @override
+  State<RegPage> createState() => _RegPageState();
+}
+
+class _RegPageState extends State<RegPage> {
+  final String _googleLogo = "assets/images/google_logo.png";
+
+  final String _facebookLogo = "assets/images/facebook_logo.png";
 
   @override
   Widget build(BuildContext context) {
@@ -18,42 +25,57 @@ class RegPage extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30.0),
           child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Padding(
-                padding: const EdgeInsets.only(right: 210),
+                padding: EdgeInsets.only(right: 200),
                 child: TextButtonSign(),
               ),
               SizedBox(height: 100.h),
-              TextFieldLogin(helpText: "Email or phone",),
+              const TextFieldLogin(
+                helpText: "Email or phone",
+              ),
               SizedBox(
                 height: 20.h,
               ),
-              TextFieldReg(helpText: "password", passwordVisible: true, underText: "Forget password?",),
-              TextButtonForget(),
+              TextFieldReg(
+                helpText: "password",
+                passwordVisible: true,
+                underText: "Forget password?",
+              ),
+              const TextButtonForget(),
               SizedBox(
                 height: 30.h,
               ),
-              Button(),
+              const Button(),
               SizedBox(
                 height: 10.h,
               ),
-              Text("or".toUpperCase(), style: AppFonts.s16w300.copyWith(fontFamily: "Inter"),),
+              Text(
+                "or".toUpperCase(),
+                style: AppFonts.s16w300.copyWith(fontFamily: "Inter"),
+              ),
               SizedBox(
                 height: 10.h,
               ),
-              TransparentButton(textButton: "Continue with Google".padRight(20), icon: _googleLogo,),
+              TransparentButton(
+                textButton: "Continue with Google".padRight(20),
+                icon: _googleLogo,
+              ),
               SizedBox(
                 height: 15.h,
               ),
-              TransparentButton(textButton: "Continue with Facebook", icon: _facebookLogo,),
+              TransparentButton(
+                textButton: "Continue with Facebook",
+                icon: _facebookLogo,
+              ),
               SizedBox(
                 height: 25.h,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  TextButtonReg(),
+                  const TextButtonReg(),
                   SizedBox(
                     width: 30.w,
                   ),
