@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_4/ui/theme/app_colors.dart';
+import 'package:flutter_application_4/presentation/theme/app_colors.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../theme/app_fonts.dart';
@@ -20,9 +20,12 @@ class _ButtonState extends State<Button> {
       height: 48.h,
       child: ElevatedButton(
         onPressed: widget.onPressed,
-        child: Text("Get location", style: AppFonts.s16w500,),
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColors.deepBlue,
+        ),
+        child: const Text(
+          "Get location",
+          style: AppFonts.s16w500,
         ),
       ),
     );

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_4/ui/theme/app_colors.dart';
-import 'package:flutter_application_4/ui/theme/app_fonts.dart';
+import 'package:flutter_application_4/presentation/theme/app_colors.dart';
+import 'package:flutter_application_4/presentation/theme/app_fonts.dart';
 
 class AppBarButton extends StatelessWidget {
   final Function() onPressed;

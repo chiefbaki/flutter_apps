@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_4/ui/theme/app_colors.dart';
+import 'package:flutter_application_4/presentation/theme/app_colors.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DataField extends StatefulWidget {
   final String title;
   final String hintText;
+
   final TextInputType keyboardType;
   final String initialText;
-  const DataField(
-      {super.key,
-      required this.title,
-      required this.initialText,
-      this.keyboardType = TextInputType.text,
-      this.hintText = '',});
+  const DataField({
+    super.key,
+    required this.title,
+    required this.initialText,
+    this.keyboardType = TextInputType.text,
+    this.hintText = '',
+  });
 
   @override
   State<DataField> createState() => _DataFieldState();
@@ -26,12 +28,11 @@ class _DataFieldState extends State<DataField> {
       children: [
         SizedBox(
           height: 70.h,
-          child: TextFormField(
+          child: TextField(
             keyboardType: widget.keyboardType,
-            initialValue: widget.initialText,
             decoration: InputDecoration(
                 contentPadding: const EdgeInsets.symmetric(vertical: 20),
-                hintText: widget.hintText,
+                hintText: widget.initialText,
                 filled: true,
                 fillColor: Colors.white,
                 border: const UnderlineInputBorder(

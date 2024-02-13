@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_4/ui/screens/home_page.dart';
-import 'package:flutter_application_4/ui/theme/app_colors.dart';
+import 'package:flutter_application_4/presentation/screens/home_page.dart';
+import 'package:flutter_application_4/presentation/theme/app_colors.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() => runApp(const MyApp());

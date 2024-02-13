@@ -10,7 +10,7 @@ class DioSettings {
 
   Dio dio = Dio(
     BaseOptions(
-      baseUrl: "https://randomuser.me/",
+      baseUrl: "https://randomuser.me/api/",
       contentType: "application/json",
       headers: {
         "Accept": "application/json",
