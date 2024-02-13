@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_19/core/consts/app_colors.dart';
 import 'package:flutter_application_19/presentation/screens/main_screen.dart';
 
 class MyApp extends StatelessWidget {
@@ -6,9 +7,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MainScreen(),
+      theme: ThemeData(
+        scaffoldBackgroundColor: AppColors.bgColor
+      ),
+      home: const MainScreen(),
     );
   }
 }
