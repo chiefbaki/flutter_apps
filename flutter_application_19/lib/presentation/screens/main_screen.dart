@@ -1,5 +1,5 @@
 import 'dart:convert';
-
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_19/core/consts/app_colors.dart';
 import 'package:flutter_application_19/core/consts/app_fonts.dart';
@@ -8,6 +8,7 @@ import 'package:flutter_application_19/data/model/ws_model.dart';
 import 'package:flutter_application_19/presentation/widgets/custom_btn.dart';
 import 'package:flutter_application_19/presentation/widgets/graphic.dart';
 import 'package:flutter_application_19/presentation/widgets/list_currency.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 
 class MainScreen extends StatefulWidget {
@@ -18,14 +19,6 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  // Stream<void> _fetchData() async* {
-  //   final wbsUrl = Uri.parse("wss://stream.binance.com:9443/ws/etheur@trade");
-  //   final WebSocketChannel channel = WebSocketChannel.connect(wbsUrl);
-  //   channel.stream.listen((message) {
-  //     Map<String, dynamic> valueMap = json.decode(message);
-  //   });
-  // }
-
   late WebSocketChannel _channel;
 
   @override
@@ -38,10 +31,12 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     _channel.sink.close();
   }
+
+  List<FlSpot> myData = [];
+  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -60,6 +55,9 @@ class _MainScreenState extends State<MainScreen> {
               if (snapshot.connectionState == ConnectionState.active) {
                 final Map<String, dynamic> data = json.decode(snapshot.data);
                 final CryptoGraphic crypto = CryptoGraphic.fromJson(data);
+                currentIndex++;
+                myData.add(FlSpot(double.parse(currentIndex.toString()),
+                    double.tryParse(crypto.priceOfDeal ?? '') ?? 0,));
                 return Column(
                   children: [
                     Row(
@@ -83,7 +81,7 @@ class _MainScreenState extends State<MainScreen> {
                               width: 30,
                             ),
                             Text(
-                              "${crypto.name}/USDT",
+                              "${crypto.name}",
                               style: AppFonts.s18w400
                                   .copyWith(color: AppColors.leadingColor),
                             ),
@@ -142,7 +140,11 @@ class _MainScreenState extends State<MainScreen> {
                     const SizedBox(
                       height: 15,
                     ),
-                    LineChartSample2(),
+                    LineChartSample2(
+                      data: myData,
+                      // tradeTimeX: double.parse(crypto.tradeTime.toString()),
+                      // priceY: double.parse(crypto.priceOfDeal ?? ""),
+                    ),
                     const SizedBox(
                       height: 32,
                     ),

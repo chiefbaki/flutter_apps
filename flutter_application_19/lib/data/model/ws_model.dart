@@ -1,17 +1,3 @@
-// {
-//     "e": "trade",
-//     "E": 1707822837816,
-//     "s": "ETHEUR",
-//     "t": 92368238,
-//     "p": "2476.49000000",
-//     "q": "0.10450000",
-//     "b": 2639575295,
-//     "a": 2639575281,
-//     "T": 1707822837814,
-//     "m": false,
-//     "M": true
-// }
-
 class CryptoGraphic {
   String? typeTrade;
   num? eventTimesTamp;
@@ -21,7 +7,7 @@ class CryptoGraphic {
   String? numberOfAssets;
   int? idOfBuyer;
   int? idOfSeller;
-  int? transactionTimesTamp;
+  int? tradeTime;
   bool? isCreator;
   bool? isOrder;
 
@@ -35,7 +21,7 @@ class CryptoGraphic {
       this.name,
       this.numberOfAssets,
       this.priceOfDeal,
-      this.transactionTimesTamp,
+      this.tradeTime,
       this.typeTrade);
 
   CryptoGraphic.fromJson(Map<String, dynamic> json) {
@@ -47,7 +33,7 @@ class CryptoGraphic {
     numberOfAssets = json["q"];
     idOfBuyer = json["b"];
     idOfSeller = json["a"];
-    transactionTimesTamp = json["T"];
+    tradeTime = json["T"];
     isCreator = json["m"];
     isOrder = json["M"];
   }

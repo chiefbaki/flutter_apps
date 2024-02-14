@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_19/core/consts/app_colors.dart';
 
 class LineChartSample2 extends StatefulWidget {
-  const LineChartSample2({super.key});
+  const LineChartSample2({super.key,required this.data,});
+    final List<FlSpot> data;
+
 
   @override
   State<LineChartSample2> createState() => _LineChartSample2State();
@@ -12,8 +14,9 @@ class LineChartSample2 extends StatefulWidget {
 class _LineChartSample2State extends State<LineChartSample2> {
   List<Color> gradientColors = [
     AppColors.green,
-    AppColors.lightGreen,
+    AppColors.green,
   ];
+
 
   bool showAvg = false;
 
@@ -138,7 +141,7 @@ class _LineChartSample2State extends State<LineChartSample2> {
         bottomTitles: AxisTitles(
           sideTitles: SideTitles(
             showTitles: true,
-            reservedSize: 30,
+            reservedSize:30,
             interval: 1,
             getTitlesWidget: bottomTitleWidgets,
           ),
@@ -146,9 +149,9 @@ class _LineChartSample2State extends State<LineChartSample2> {
         leftTitles: AxisTitles(
           sideTitles: SideTitles(
             showTitles: true,
-            interval: 1,
+            interval: 10,
             getTitlesWidget: leftTitleWidgets,
-            reservedSize: 42,
+            reservedSize: 23,
           ),
         ),
       ),
@@ -157,20 +160,12 @@ class _LineChartSample2State extends State<LineChartSample2> {
         border: Border.all(color: const Color(0xff37434d)),
       ),
       minX: 0,
-      maxX: 11,
-      minY: 0,
-      maxY: 6,
+      maxX: 110,
+      minY: 2550,
+      maxY: 2580,
       lineBarsData: [
         LineChartBarData(
-          spots: const [
-            FlSpot(0, 3),
-            FlSpot(2.6, 2),
-            FlSpot(4.9, 5),
-            FlSpot(6.8, 3.1),
-            FlSpot(8, 4),
-            FlSpot(9.5, 3),
-            FlSpot(11, 4),
-          ],
+          spots: widget.data,
           isCurved: true,
           gradient: LinearGradient(
             colors: gradientColors,
@@ -244,7 +239,7 @@ class _LineChartSample2State extends State<LineChartSample2> {
         border: Border.all(color: const Color(0xff37434d)),
       ),
       minX: 0,
-      maxX: 11,
+      maxX: 110,
       minY: 0,
       maxY: 6,
       lineBarsData: [

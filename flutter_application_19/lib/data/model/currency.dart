@@ -17,6 +17,7 @@ class CurrencyModel {
       required this.percent});
 }
 
+
 class CurrencyModelList {
   static final models = [
     CurrencyModel(name: "Bitcoin", img: "assets/imgs/Vector.png", shortName: "BTC", color: AppColors.orangeGradient, price: "47,412.65", percent: "+1.6%"),
