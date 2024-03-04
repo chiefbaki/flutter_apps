@@ -9,7 +9,8 @@ final class GeolocationLoading extends GeolocationState {}
 
 final class GeolocationSuccess extends GeolocationState {
   final LocationModel? model;
-  GeolocationSuccess({required this.model});
+  final AddressModel? address;
+  GeolocationSuccess({this.model, this.address});
 }
 
 final class GeolocationError extends GeolocationState {

@@ -1,8 +1,7 @@
 import "dart:async";
-
 import "package:dio/dio.dart";
 import "package:flutter/foundation.dart";
-import "package:flutter_application_18/core/utils/consts/api_consts.dart";
+
 
 class DioSettings {
   DioSettings() {
